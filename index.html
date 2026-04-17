@@ -1,13 +1,231 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyvela Clone</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter'],
+                    },
+                    colors: {
+                        brandDark: '#1E2358',
+                        brandBlue: '#3342d9',
+                        brandYellow: '#ffcb05',
+                        textGray: '#5B616E',
+                        lightBorder: '#e5e7eb',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom radio button styling */
+        input[type="radio"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            margin-right: 8px;
+        }
+
+        input[type="radio"]:checked {
+            border-color: white;
+            background-color: transparent;
+        }
+
+        input[type="radio"]:checked::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .radio-dark input[type="radio"]:checked {
+            border-color: white;
+        }
+
+        .radio-light input[type="radio"] {
+            border-color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-brandDark antialiased bg-gray-50">
+
+    <header class="container bg-white flex justify-around items-center py-2 px-8 shadow-sm relative z-20">
+        <div class="flex items-center relative -top-[5.5px]">
+            <img class="w-[160px] h-[54px] opacity-100 rotate-0 object-contain" src="./headerlogo.png"
+                alt="Skyvela Logo">
+        </div>
+        <nav class="hidden lg:flex gap-8 font-semibold text-[15px]">
+            <a href="#" class="text-[#1E2358] hover:text-brandBlue">Flights</a>
+            <a href="#" class="text-[#1E2358] hover:text-brandBlue">Hotels</a>
+            <a href="#" class="text-[#1E2358] hover:text-brandBlue">Packages</a>
+            <a href="#" class="text-[#1E2358] hover:text-brandBlue">Activities</a>
+            <a href="#" class="text-[#1E2358] hover:text-brandBlue">Transfers</a>
+        </nav>
+
+        <div class="flex items-center gap-5">
+            <div class="flex items-center gap-2 text-sm font-semibold cursor-pointer">
+                <img src="./Flag.png" alt="US Flag" class="w-8 h-auto rounded-full">
+                <span class="text-[#5B616E]">ENG</span>
+                <i class="text-[#5B616E] fas fa-chevron-down text-[10px] text-gray-500"></i>
+            </div>
+
+            <button
+                class="bg-[#1E2358] hover:bg-opacity-90 text-white px-5 py-2.5 rounded-lg font-semibold text-sm flex items-center gap-2 transition">
+                Sign In <img src="./arrow-left-02.svg" alt="My Icon" class="w-6 h-6">
+            </button>
+
+            <button class="bg-brandYellow hover:bg-yellow-400 text-brandDark p-2.5 rounded-lg transition">
+                <img src="./Line.svg" alt="My Icon" class="w-6 h-6"> </button>
+        </div>
+    </header>
+
+    <div class="relative w-full h-[700px] flex justify-center pt-24 bg-cover bg-center"
+        style="background-image: url('./hero.jpg'); background-position: left;">
+
+        <div class="bg-white rounded-[24px] shadow-2xl w-11/12 max-w-6xl p-8 relative z-10 h-max">
+
+            <div class="flex gap-10 border-b border-lightBorder pb-0">
+                <button
+                    class="flex items-center gap-2 text-brandBlue font-[500] border-b-[3px] border-brandBlue pb-4 px-1">
+                    <img src="./flight.svg" alt="My Icon" class="w-6 h-6"> Flights
+                </button>
+                <button
+                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
+                    <img src="./hotel.svg" alt="My Icon" class="w-6 h-6"> Hotels
+                </button>
+                <button
+                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
+                    <img src="./pakage.svg" alt="My Icon" class="w-6 h-6"> Packages
+                </button>
+                <button
+                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
+                    <img src="./act.svg" alt="My Icon" class="w-6 h-6"> Activities
+                </button>
+                <button
+                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
+                    <img src="./car.svg" alt="My Icon" class="w-6 h-6"> Transfers
+                </button>
+            </div>
+
+            <div class="flex gap-3 mt-6">
+                <label
+                    class="bg-brandDark text-white px-5 py-2.5 rounded-lg flex items-center cursor-pointer text-sm font-[500] radio-dark">
+                    <input type="radio" name="tripType" checked>
+                    One Way
+                </label>
+                <label
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-lg flex items-center cursor-pointer text-sm font-[500] transition radio-light">
+                    <input type="radio" name="tripType">
+                    Round Trip
+                </label>
+                <label
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-lg flex items-center cursor-pointer text-sm font-[500] transition radio-light">
+                    <input type="radio" name="tripType">
+                    Multi City
+                </label>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-4 mt-6 mb-8 items-stretch relative">
+
+                <div class="flex flex-col lg:flex-row flex-1 gap-4 relative">
+
+                    <div
+                        class="border border-lightBorder hover:border-brandBlue rounded-2xl p-4 flex-1 flex items-start gap-3 cursor-pointer transition bg-white">
+                        <img src="./Frame 833.png" alt="My Icon" class="w-6 h-6">
+                        <div class="flex flex-col overflow-hidden">
+                            <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">From</span>
+                            <span class="text-xl font-[600] text-brandDark mt-0.5">Dhaka</span>
+                            <span class="text-[13px] font-[400] text-textGray truncate mt-0.5">DAC, Hazrat Shahjalal
+                                Inter...</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-lightBorder rounded-full items-center justify-center shadow-md hover:shadow-lg transition cursor-pointer">
+                        <i class="fas fa-exchange-alt text-textGray text-xs"></i>
+                    </div>
+
+                    <div
+                        class="border border-lightBorder hover:border-brandBlue rounded-2xl p-4 flex-1 flex items-start gap-3 cursor-pointer transition bg-white">
+                        <img src="./arrow.svg" alt="My Icon" class="w-6 h-6">
+                        <div class="flex flex-col overflow-hidden">
+                            <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">To</span>
+                            <span class="text-xl font-[600] text-brandDark mt-0.5">Cox's Bazar</span>
+                            <span class="text-[13px] font-[400] text-textGray truncate mt-0.5">CXB, Cox's Bazar
+                                Airport</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="border border-lightBorder hover:border-brandBlue rounded-2xl flex-[1.6] flex items-stretch cursor-pointer transition overflow-hidden bg-white">
+
+                    <div class="flex-1 p-4 border-r border-lightBorder flex items-start gap-3">
+                        <img src="./calendar-03.svg" alt="My Icon" class="w-6 h-6">
+                        <div class="flex flex-col">
+                            <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">Departure
+                                Date</span>
+                            <span class="text-xl font-[600] text-brandDark mt-0.5">22 Mar'26</span>
+                            <span class="text-[13px] font-[400] text-textGray mt-0.5">Sunday</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 p-4 flex flex-col justify-start">
+                        <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">Return Date</span>
+                        <span class="text-[13px] font-[400] text-textGray mt-1 leading-snug">Save more on
+                            return<br>flight</span>
+                    </div>
+
+                </div>
+
+                <div
+                    class="border border-lightBorder hover:border-brandBlue rounded-2xl p-4 flex-[0.9] flex items-start gap-3 cursor-pointer transition">
+                    <img src="./user-multiple.svg" alt="My Icon" class="w-6 h-6">
+
+                    <div class="flex flex-col">
+                        <span class="text-[11px] text-#253183 font-[400] uppercase tracking-wide">Traveler, Class</span>
+                        <span class="text-xl font-[600] text-brandDark mt-0.5">1 Traveler</span>
+                        <span class="text-[13px] font-[400] text-textGray mt-0.5">Economy</span>
+                    </div>
+                </div>
+            </div>
+
+            <button
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-brandYellow hover:bg-yellow-400 text-brandDark font-bold text-[17px] px-12 py-3.5 rounded-xl shadow-lg flex items-center gap-2 transition duration-200">
+                Search <img src="./arrow-right-02.svg" alt="My Icon" class="w-6 h-6">
+
+            </button>
+
+        </div>
+    </div>
+
+</body>
+
 </html>
