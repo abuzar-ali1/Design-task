@@ -75,12 +75,12 @@
 
 <body class="font-sans text-brandDark antialiased bg-gray-50">
 
-<header class="w-full bg-white shadow-sm relative z-20 flex justify-center lg:h-[74px] py-4 lg:py-0">
+<header class="w-full bg-white shadow-sm relative z-20 flex justify-center lg:h-[74px] px-1 py-4 lg:py-0">
     
     <div class="w-[343px] max-w-full h-[36px] lg:w-11/12 lg:max-w-[1140px] lg:h-full flex justify-between items-center opacity-100 rotate-0 gap-0 lg:gap-none">
 
         <div class="flex items-center relative h-full">
-            <img class="w-[110px] lg:w-[160px] h-full lg:h-auto object-contain" src="./headerlogo.png" alt="Skyvela Logo">
+            <img class="w-[110px] lg:w-[160px] h-full lg:h-auto object-cover" src="./headerlogo.png" alt="Skyvela Logo">
         </div>
 
         <nav class="hidden lg:flex gap-8 font-[600] text-[15px] ml-4">
@@ -114,8 +114,8 @@
 <!-- Heroo section -->
 
 
-<div class="relative w-full h-[700px] flex justify-center pt-16 lg:pt-24 bg-cover bg-center"
-    style="background-image: url('./hero.jpg'); background-position: left;">
+<div class="bg-[linear-gradient(rgba(175,185,232,0.6),rgba(175,185,232,0.6)),url('./hero.jpg')] relative w-full  lg:h-[615px] h-[721px] flex justify-center pt-16 lg:pt-24 lg:bg-bottom bg-[length:100%_100%] lg:bg-cover bg-size-[90%_100%] bg-no-repeat"
+    >
 
     <div class="bg-white rounded-[20px] lg:rounded-[24px] shadow-2xl w-11/12 max-w-6xl p-4 lg:p-8 relative z-10 h-max">
 
@@ -212,7 +212,7 @@
             
         </div>
 
-        <button class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-brandYellow hover:bg-yellow-400 text-brandDark font-bold text-[15px] lg:text-[17px] px-8 lg:px-12 py-3 lg:py-3.5 rounded-[10px] lg:rounded-xl shadow-lg flex items-center justify-center gap-2 transition duration-200 w-max whitespace-nowrap">
+        <button class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-brandYellow hover:bg-yellow-400 text-brandDark font-bold text-[15px] lg:text-[17px] px-8 lg:px-8 py-3 lg:py-3.5 rounded-[10px] lg:rounded-xl shadow-lg flex items-center justify-center gap-2 transition duration-200 w-max whitespace-nowrap">
             Search <img src="./arrow-right-02.svg" alt="My Icon" class="w-4 h-4 lg:w-6 h-6">
         </button>
 
@@ -550,7 +550,7 @@
                             <div class="text-[18px] lg:text-[20px] font-[600] text-brandDark">$345</div>
                             <div class="text-[9px] lg:text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
 
@@ -735,19 +735,20 @@
     </div>
 </section>
 
-<footer class="bg-[#1b1e44] pt-16 pb-8 px-6 md:px-12 w-full flex justify-center font-sans">
+<footer class="bg-[#1E2358] pt-16 pb-8 px-3 md:px-5 w-full flex justify-center font-sans">
     <div class="w-full max-w-6xl">
         
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
             
             <div class="lg:w-[40%] flex flex-col gap-8">
                 
-                <div>
-                    <img src="./footer.png" alt="Skyvela Logo" class="h-10 w-auto mb-5 object-contain">
-                    <p class="text-[13px] text-white/80 leading-relaxed pr-4">
-                        Your smart travel companion for flights, hotels, activities and more — across the globe.
-                    </p>
-                </div>
+              <div>
+    <img src="./footer.png" alt="Skyvela Logo" class="w-[168px] h-[60px] relative top-[4px] opacity-100 rotate-0 mb-5 object-cover">
+    
+    <p class="text-[16px] text-[#EDEEF1] font-[500] pr-4">
+        Your smart travel companion for flights, hotels, activities and more — across the globe.
+    </p>
+</div>
 
                 <div>
                     <h4 class="text-[14px] font-[600] text-white mb-3">Language</h4>
@@ -807,7 +808,7 @@
             </div>
         </div>
 
-        <div class="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="mt-6 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
             
             <p class="text-[12px] text-white/80 font-[400]">
                 Copyright © 2026 Skyvela, All Rights Reserved.
