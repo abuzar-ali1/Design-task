@@ -75,12 +75,15 @@
 
 <body class="font-sans text-brandDark antialiased bg-gray-50">
 
-    <header class="container bg-white flex justify-around items-center py-2 px-8 shadow-sm relative z-20">
-        <div class="flex items-center relative -top-[5.5px]">
-            <img class="w-[160px] h-[54px] opacity-100 rotate-0 object-contain" src="./headerlogo.png"
-                alt="Skyvela Logo">
+<header class="w-full bg-white shadow-sm relative z-20 flex justify-center lg:h-[74px] py-4 lg:py-0">
+    
+    <div class="w-[343px] max-w-full h-[36px] lg:w-11/12 lg:max-w-[1140px] lg:h-full flex justify-between items-center opacity-100 rotate-0 gap-0 lg:gap-none">
+
+        <div class="flex items-center relative h-full">
+            <img class="w-[110px] lg:w-[160px] h-full lg:h-auto object-contain" src="./headerlogo.png" alt="Skyvela Logo">
         </div>
-        <nav class="hidden lg:flex gap-8 font-semibold text-[15px]">
+
+        <nav class="hidden lg:flex gap-8 font-[600] text-[15px] ml-4">
             <a href="#" class="text-[#1E2358] hover:text-brandBlue">Flights</a>
             <a href="#" class="text-[#1E2358] hover:text-brandBlue">Hotels</a>
             <a href="#" class="text-[#1E2358] hover:text-brandBlue">Packages</a>
@@ -88,171 +91,168 @@
             <a href="#" class="text-[#1E2358] hover:text-brandBlue">Transfers</a>
         </nav>
 
-        <div class="flex items-center gap-5">
-            <div class="flex items-center gap-2 text-sm font-semibold cursor-pointer">
-                <img src="./Flag.png" alt="US Flag" class="w-8 h-auto rounded-full">
+        <div class="flex items-center gap-0 lg:gap-6 h-full">
+            
+            <div class="hidden lg:flex items-center gap-2 text-sm font-[600] cursor-pointer">
+                <img src="./Flag.png" alt="US Flag" class="w-7 h-auto rounded-full">
                 <span class="text-[#5B616E]">ENG</span>
-                <i class="text-[#5B616E] fas fa-chevron-down text-[10px] text-gray-500"></i>
+                <i class="text-[#5B616E] fas fa-chevron-down text-[10px]"></i>
             </div>
 
-            <button
-                class="bg-[#1E2358] hover:bg-opacity-90 text-white px-5 py-2.5 rounded-lg font-semibold text-sm flex items-center gap-2 transition">
-                Sign In <img src="./arrow-left-02.svg" alt="My Icon" class="w-6 h-6">
+            <button class="bg-[#1E2358] hover:bg-opacity-90 text-white px-3 py-1.5 lg:px-6 lg:py-2.5 rounded-[8px] font-[600] text-[12px] lg:text-sm flex items-center gap-1.5 lg:gap-2 transition h-full lg:h-auto mr-2 lg:mr-0">
+                Sign In <img src="./arrow-left-02.svg" alt="My Icon" class="w-4 h-4 lg:w-5 lg:h-5">
             </button>
 
-            <button class="bg-brandYellow hover:bg-yellow-400 text-brandDark p-2.5 rounded-lg transition">
-                <img src="./Line.svg" alt="My Icon" class="w-6 h-6"> </button>
-        </div>
-    </header>
-
-    <div class="relative w-full h-[700px] flex justify-center pt-24 bg-cover bg-center"
-        style="background-image: url('./hero.jpg'); background-position: left;">
-
-        <div class="bg-white rounded-[24px] shadow-2xl w-11/12 max-w-6xl p-8 relative z-10 h-max">
-
-            <div class="flex gap-10 border-b border-lightBorder pb-0">
-                <button
-                    class="flex items-center gap-2 text-brandBlue font-[500] border-b-[3px] border-brandBlue pb-4 px-1">
-                    <img src="./flight.svg" alt="My Icon" class="w-6 h-6"> Flights
-                </button>
-                <button
-                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
-                    <img src="./hotel.svg" alt="My Icon" class="w-6 h-6"> Hotels
-                </button>
-                <button
-                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
-                    <img src="./pakage.svg" alt="My Icon" class="w-6 h-6"> Packages
-                </button>
-                <button
-                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
-                    <img src="./act.svg" alt="My Icon" class="w-6 h-6"> Activities
-                </button>
-                <button
-                    class="flex items-center gap-2 text-textGray font-[500] hover:text-brandDark pb-4 px-1 transition">
-                    <img src="./car.svg" alt="My Icon" class="w-6 h-6"> Transfers
-                </button>
-            </div>
-
-            <div class="flex gap-3 mt-6">
-                <label
-                    class="bg-brandDark text-white px-5 py-2.5 rounded-lg flex items-center cursor-pointer text-sm font-[500] radio-dark">
-                    <input type="radio" name="tripType" checked>
-                    One Way
-                </label>
-                <label
-                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-lg flex items-center cursor-pointer text-sm font-[500] transition radio-light">
-                    <input type="radio" name="tripType">
-                    Round Trip
-                </label>
-                <label
-                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-lg flex items-center cursor-pointer text-sm font-[500] transition radio-light">
-                    <input type="radio" name="tripType">
-                    Multi City
-                </label>
-            </div>
-
-            <div class="flex flex-col lg:flex-row gap-4 mt-6 mb-8 items-stretch relative">
-
-                <div class="flex flex-col lg:flex-row flex-1 gap-4 relative">
-
-                    <div
-                        class="border border-lightBorder hover:border-brandBlue rounded-2xl p-4 flex-1 flex items-start gap-3 cursor-pointer transition bg-white">
-                        <img src="./Frame 833.png" alt="My Icon" class="w-6 h-6">
-                        <div class="flex flex-col overflow-hidden">
-                            <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">From</span>
-                            <span class="text-xl font-[600] text-brandDark mt-0.5">Dhaka</span>
-                            <span class="text-[13px] font-[400] text-textGray truncate mt-0.5">DAC, Hazrat Shahjalal
-                                Inter...</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-lightBorder rounded-full items-center justify-center shadow-md hover:shadow-lg transition cursor-pointer">
-                        <i class="fas fa-exchange-alt text-textGray text-xs"></i>
-                    </div>
-
-                    <div
-                        class="border border-lightBorder hover:border-brandBlue rounded-2xl p-4 flex-1 flex items-start gap-3 cursor-pointer transition bg-white">
-                        <img src="./arrow.svg" alt="My Icon" class="w-6 h-6">
-                        <div class="flex flex-col overflow-hidden">
-                            <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">To</span>
-                            <span class="text-xl font-[600] text-brandDark mt-0.5">Cox's Bazar</span>
-                            <span class="text-[13px] font-[400] text-textGray truncate mt-0.5">CXB, Cox's Bazar
-                                Airport</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div
-                    class="border border-lightBorder hover:border-brandBlue rounded-2xl flex-[1.6] flex items-stretch cursor-pointer transition overflow-hidden bg-white">
-
-                    <div class="flex-1 p-4 border-r border-lightBorder flex items-start gap-3">
-                        <img src="./calendar-03.svg" alt="My Icon" class="w-6 h-6">
-                        <div class="flex flex-col">
-                            <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">Departure
-                                Date</span>
-                            <span class="text-xl font-[600] text-brandDark mt-0.5">22 Mar'26</span>
-                            <span class="text-[13px] font-[400] text-textGray mt-0.5">Sunday</span>
-                        </div>
-                    </div>
-
-                    <div class="flex-1 p-4 flex flex-col justify-start">
-                        <span class="text-[11px] text-[#253183] font-[400] uppercase tracking-wide">Return Date</span>
-                        <span class="text-[13px] font-[400] text-textGray mt-1 leading-snug">Save more on
-                            return<br>flight</span>
-                    </div>
-
-                </div>
-
-                <div
-                    class="border border-lightBorder hover:border-brandBlue rounded-2xl p-4 flex-[0.9] flex items-start gap-3 cursor-pointer transition">
-                    <img src="./user-multiple.svg" alt="My Icon" class="w-6 h-6">
-
-                    <div class="flex flex-col">
-                        <span class="text-[11px] text-#253183 font-[400] uppercase tracking-wide">Traveler, Class</span>
-                        <span class="text-xl font-[600] text-brandDark mt-0.5">1 Traveler</span>
-                        <span class="text-[13px] font-[400] text-textGray mt-0.5">Economy</span>
-                    </div>
-                </div>
-            </div>
-
-            <button
-                class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-brandYellow hover:bg-yellow-400 text-brandDark font-bold text-[17px] px-12 py-3.5 rounded-xl shadow-lg flex items-center gap-2 transition duration-200">
-                Search <img src="./arrow-right-02.svg" alt="My Icon" class="w-6 h-6">
-
+            <button class="bg-brandYellow hover:bg-yellow-400 text-brandDark px-2 py-1.5 lg:p-2.5 rounded-[8px] transition h-full lg:h-auto">
+                <img src="./Line.svg" alt="My Icon" class="w-5 h-5 lg:w-6 lg:h-6">
             </button>
-
+            
         </div>
     </div>
+</header>
+
+<!-- Heroo section -->
 
 
-    <section class="bg-[#f5f6fa] py-16 px-8 w-full flex justify-center">
-    <div class="w-full max-w-6xl">
-        
-        <div class="flex justify-between items-end mb-8">
-            <div>
-                <span class="text-[13px] text-textGray font-[400] mb-1 block">Best Deals</span>
-                <h2 class="text-[28px] font-bold text-brandDark leading-tight">Featured Flights</h2>
-            </div>
-            <a href="#" class="text-[13px] font-[700] text-brandDark hover:text-brandBlue transition">View All</a>
+<div class="relative w-full h-[700px] flex justify-center pt-16 lg:pt-24 bg-cover bg-center"
+    style="background-image: url('./hero.jpg'); background-position: left;">
+
+    <div class="bg-white rounded-[20px] lg:rounded-[24px] shadow-2xl w-11/12 max-w-6xl p-4 lg:p-8 relative z-10 h-max">
+
+        <div class="flex justify-between lg:justify-start overflow-x-auto hide-scrollbar gap-2 lg:gap-10 border-b border-lightBorder pb-0">
+            <button class="flex flex-col lg:flex-row items-center justify-center gap-1.5 lg:gap-2 text-brandBlue font-[500] border-b-[3px] border-brandBlue pb-2 lg:pb-4 px-2 lg:px-1 min-w-[64px] lg:min-w-0">
+                <img src="./flight.svg" alt="My Icon" class="w-5 h-5 lg:w-6 lg:h-6">
+                <span class="text-[11px] lg:text-base">Flights</span>
+            </button>
+            <button class="flex flex-col lg:flex-row items-center justify-center gap-1.5 lg:gap-2 text-textGray font-[500] hover:text-brandDark pb-2 lg:pb-4 px-2 lg:px-1 transition min-w-[64px] lg:min-w-0">
+                <img src="./hotel.svg" alt="My Icon" class="w-5 h-5 lg:w-6 lg:h-6 opacity-60">
+                <span class="text-[11px] lg:text-base">Hotels</span>
+            </button>
+            <button class="flex flex-col lg:flex-row items-center justify-center gap-1.5 lg:gap-2 text-textGray font-[500] hover:text-brandDark pb-2 lg:pb-4 px-2 lg:px-1 transition min-w-[64px] lg:min-w-0">
+                <img src="./pakage.svg" alt="My Icon" class="w-5 h-5 lg:w-6 lg:h-6 opacity-60">
+                <span class="text-[11px] lg:text-base">Packages</span>
+            </button>
+            <button class="flex flex-col lg:flex-row items-center justify-center gap-1.5 lg:gap-2 text-textGray font-[500] hover:text-brandDark pb-2 lg:pb-4 px-2 lg:px-1 transition min-w-[64px] lg:min-w-0">
+                <img src="./act.svg" alt="My Icon" class="w-5 h-5 lg:w-6 lg:h-6 opacity-60">
+                <span class="text-[11px] lg:text-base">Activities</span>
+            </button>
+            <button class="flex flex-col lg:flex-row items-center justify-center gap-1.5 lg:gap-2 text-textGray font-[500] hover:text-brandDark pb-2 lg:pb-4 px-2 lg:px-1 transition min-w-[64px] lg:min-w-0">
+                <img src="./car.svg" alt="My Icon" class="w-5 h-5 lg:w-6 lg:h-6 opacity-60">
+                <span class="text-[11px] lg:text-base">Transfers</span>
+            </button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex gap-2 lg:gap-3 mt-4 lg:mt-6 overflow-x-auto hide-scrollbar">
+            <label class="bg-brandDark text-white px-3 py-2 lg:px-5 lg:py-2.5 rounded-lg flex items-center cursor-pointer text-[11px] lg:text-sm font-[500] radio-dark whitespace-nowrap">
+                <input type="radio" name="tripType" checked>
+                One Way
+            </label>
+            <label class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 lg:px-5 lg:py-2.5 rounded-lg flex items-center cursor-pointer text-[11px] lg:text-sm font-[500] transition radio-light whitespace-nowrap">
+                <input type="radio" name="tripType">
+                Round Trip
+            </label>
+            <label class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 lg:px-5 lg:py-2.5 rounded-lg flex items-center cursor-pointer text-[11px] lg:text-sm font-[500] transition radio-light whitespace-nowrap">
+                <input type="radio" name="tripType">
+                Multi City
+            </label>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-3 lg:gap-4 mt-4 lg:mt-6 mb-8 items-stretch relative">
+
+            <div class="flex flex-row flex-1 gap-2 lg:gap-4 relative w-full">
+                
+                <div class="border border-lightBorder hover:border-brandBlue rounded-[14px] lg:rounded-2xl p-3 lg:p-4 flex-1 flex items-start gap-2 lg:gap-3 cursor-pointer transition bg-white w-1/2">
+                    <img src="./Frame 833.png" alt="My Icon" class="w-4 h-4 lg:w-6 h-6 shrink-0 mt-0.5">
+                    <div class="flex flex-col overflow-hidden">
+                        <span class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide">From</span>
+                        <span class="text-[15px] lg:text-xl font-[600] text-brandDark mt-0.5 truncate">Dhaka</span>
+                        <span class="text-[10px] lg:text-[13px] font-[400] text-textGray truncate mt-0.5">DAC, Hazrat Shah...</span>
+                    </div>
+                </div>
+
+                <div class="flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-7 h-7 lg:w-10 lg:h-10 bg-white border border-lightBorder rounded-full items-center justify-center shadow-md hover:shadow-lg transition cursor-pointer">
+                    <i class="fas fa-exchange-alt text-textGray text-[9px] lg:text-xs"></i>
+                </div>
+
+                <div class="border border-lightBorder hover:border-brandBlue rounded-[14px] lg:rounded-2xl p-3 lg:p-4 flex-1 flex items-start gap-2 lg:gap-3 cursor-pointer transition bg-white w-1/2">
+                    <img src="./arrow.svg" alt="My Icon" class="w-4 h-4 lg:w-6 h-6 shrink-0 mt-0.5">
+                    <div class="flex flex-col overflow-hidden">
+                        <span class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide">To</span>
+                        <span class="text-[15px] lg:text-xl font-[600] text-brandDark mt-0.5 truncate">Cox's Bazar</span>
+                        <span class="text-[10px] lg:text-[13px] font-[400] text-textGray truncate mt-0.5">CXB, Cox's Bazar...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-lightBorder hover:border-brandBlue rounded-[14px] lg:rounded-2xl flex flex-row w-full lg:flex-[1.6] items-stretch cursor-pointer transition overflow-hidden bg-white">
+                
+                <div class="flex-1 p-3 lg:p-4 border-r border-lightBorder flex items-start gap-2 lg:gap-3 w-1/2">
+                    <img src="./calendar-03.svg" alt="My Icon" class="w-4 h-4 lg:w-6 h-6 shrink-0 mt-0.5">
+                    <div class="flex flex-col overflow-hidden">
+                        <span class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide truncate">Departure Date</span>
+                        <span class="text-[15px] lg:text-xl font-[600] text-brandDark mt-0.5 truncate">22 Mar'26</span>
+                        <span class="text-[10px] lg:text-[13px] font-[400] text-textGray mt-0.5 truncate">Sunday</span>
+                    </div>
+                </div>
+                
+                <div class="flex-1 p-3 lg:p-4 flex flex-col justify-start overflow-hidden w-1/2">
+                    <span class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide truncate">Return Date</span>
+                    <span class="text-[10px] lg:text-[13px] font-[400] text-textGray mt-0.5 lg:mt-1 leading-snug truncate whitespace-normal">Save more on return flight</span>
+                </div>
+            </div>
+
+            <div class="border border-lightBorder hover:border-brandBlue rounded-[14px] lg:rounded-2xl p-3 lg:p-4 w-full lg:flex-[0.9] flex items-start gap-2 lg:gap-3 cursor-pointer transition bg-white">
+                <img src="./user-multiple.svg" alt="My Icon" class="w-4 h-4 lg:w-6 h-6 shrink-0 mt-0.5">
+                <div class="flex flex-col overflow-hidden">
+                    <span class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide truncate">Traveler, Class</span>
+                    <span class="text-[15px] lg:text-xl font-[600] text-brandDark mt-0.5 truncate">1 Traveler</span>
+                    <span class="text-[10px] lg:text-[13px] font-[400] text-textGray mt-0.5 truncate">Economy</span>
+                </div>
+            </div>
             
-            <div class="bg-white rounded-[20px] p-6 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
+        </div>
+
+        <button class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-brandYellow hover:bg-yellow-400 text-brandDark font-bold text-[15px] lg:text-[17px] px-8 lg:px-12 py-3 lg:py-3.5 rounded-[10px] lg:rounded-xl shadow-lg flex items-center justify-center gap-2 transition duration-200 w-max whitespace-nowrap">
+            Search <img src="./arrow-right-02.svg" alt="My Icon" class="w-4 h-4 lg:w-6 h-6">
+        </button>
+
+    </div>
+</div>
+
+<!-- Flight featured -->
+
+<section class="bg-[#f5f6fa] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
+    
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
+    <div class="w-full max-w-6xl">
+        
+        <div class="flex justify-between items-end mb-6 lg:mb-8">
+            <div>
+                <span class="text-[12px] lg:text-[13px] text-textGray font-[400] mb-1 block">Best Deals</span>
+                <h2 class="text-[22px] lg:text-[28px] font-bold text-brandDark leading-tight">Featured Flights</h2>
+            </div>
+            <a href="#" class="hidden md:block text-[13px] font-[700] text-brandDark hover:text-brandBlue transition">View All</a>
+        </div>
+
+        <div class="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar pb-4 md:pb-0">
+            
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start bg-white rounded-[20px] p-5 lg:p-6 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
                 <div class="flex justify-between items-start">
                     <div class="w-9 h-9 rounded-full bg-brandDark flex items-center justify-center text-white">
                         <i class="fas fa-plane transform -rotate-45 text-[13px]"></i>
                     </div>
                     <div class="flex gap-2 text-[10px] font-bold tracking-wide">
-                        <span class="bg-[#eff2fc] text-[#6b7af5] px-3 py-1.5 rounded-full">Best</span>
-                        <span class="bg-[#fff9e6] text-[#d6a000] px-3 py-1.5 rounded-full">Cheapest</span>
+                        <span class="bg-[#eff2fc] text-[#6b7af5] px-3 py-1.5 rounded-md">Best</span>
+                        <span class="bg-[#fff9e6] text-[#d6a000] px-3 py-1.5 rounded-md">Cheapest</span>
                     </div>
                 </div>
 
-                <div class="mt-8 flex items-center justify-between w-full h-12">
-                    <div class="text-[22px] font-bold text-brandDark w-12">DAC</div>
+                <div class="mt-6 lg:mt-8 flex items-center justify-between w-full h-12">
+                    <div class="text-[20px] lg:text-[22px] font-[600] text-brandDark w-12">DAC</div>
                     
                     <div class="flex-1 mx-2 relative h-full flex items-center">
                         <div class="absolute inset-0 flex items-center w-full px-1">
@@ -262,48 +262,48 @@
                         <div class="absolute inset-0 flex justify-between items-center">
                             <div class="relative flex flex-col items-center">
                                 <div class="w-2 h-2 rounded-full bg-[#facc15] shadow-[0_0_0_4px_rgba(250,204,21,0.25)]"></div>
-                                <span class="text-[11px] text-textGray font-[400] absolute top-4">Dhaka</span>
+                                <span class="text-[10px] lg:text-[11px] text-textGray font-[400] absolute top-4">Dhaka</span>
                             </div>
                             
                             <div class="relative flex flex-col items-center">
                                 <i class="fas fa-plane text-brandDark bg-white px-2 text-[14px] z-10 relative -top-[1px]"></i>
-                                <span class="text-[11px] text-brandDark font-[700] absolute top-4 w-max">1 Stop</span>
+                                <span class="text-[10px] lg:text-[11px] text-brandDark font-[700] absolute top-4 w-max">1 Stop</span>
                             </div>
                             
                             <div class="relative flex flex-col items-center">
                                 <div class="w-2 h-2 rounded-full bg-[#60a5fa] shadow-[0_0_0_4px_rgba(96,165,250,0.25)]"></div>
-                                <span class="text-[11px] text-textGray font-[400] absolute top-4">Dubai</span>
+                                <span class="text-[10px] lg:text-[11px] text-textGray font-[400] absolute top-4">Dubai</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="text-[22px] font-bold text-brandDark w-12 text-right">DXB</div>
+                    <div class="text-[20px] lg:text-[22px] font-[600] text-brandDark w-12 text-right">DXB</div>
                 </div>
 
-                <div class="mt-10 pt-1 flex justify-between items-center">
+                <div class="mt-8 lg:mt-10 pt-1 flex justify-between items-center">
                     <div class="flex items-center gap-2">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/300px-Qatar_Airways_Logo.svg.png" alt="Qatar" class="w-8 h-8 object-contain">
+                        <img src="./emr.png" alt="Qatar" class="w-7 h-7 lg:w-8 lg:h-8 object-contain">
                         <span class="text-[11px] font-[600] text-brandDark leading-[1.2]">Qutar<br>Airways</span>
                     </div>
                     <div class="text-[11px] text-textGray font-[500]">
-                        <span class="text-[16px] font-[800] text-brandDark">$345</span> / person
+                        <span class="text-[15px] lg:text-[16px] font-[600] text-brandDark">$345</span> / person
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[20px] p-6 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start bg-white rounded-[20px] p-5 lg:p-6 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
                 <div class="flex justify-between items-start">
                     <div class="w-9 h-9 rounded-full bg-brandDark flex items-center justify-center text-white">
                         <i class="fas fa-plane transform -rotate-45 text-[13px]"></i>
                     </div>
                     <div class="flex gap-2 text-[10px] font-bold tracking-wide">
-                        <span class="bg-[#eff2fc] text-[#6b7af5] px-3 py-1.5 rounded-full">Bundle</span>
-                        <span class="bg-[#fff9e6] text-[#d6a000] px-3 py-1.5 rounded-full">Save Deal</span>
+                        <span class="bg-[#eff2fc] text-[#6b7af5] px-3 py-1.5 rounded-md">Bundle</span>
+                        <span class="bg-[#fff9e6] text-[#d6a000] px-3 py-1.5 rounded-md">Save Deal</span>
                     </div>
                 </div>
 
-                <div class="mt-8 flex items-center justify-between w-full h-12">
-                    <div class="text-[22px] font-bold text-brandDark w-12">DAC</div>
+                <div class="mt-6 lg:mt-8 flex items-center justify-between w-full h-12">
+                    <div class="text-[20px] lg:text-[22px] font-[600] text-brandDark w-12">DAC</div>
                     <div class="flex-1 mx-2 relative h-full flex items-center">
                         <div class="absolute inset-0 flex items-center w-full px-1">
                             <div class="w-full border-t-[1.5px] border-dashed border-[#d1d5db]"></div>
@@ -311,45 +311,45 @@
                         <div class="absolute inset-0 flex justify-between items-center">
                             <div class="relative flex flex-col items-center">
                                 <div class="w-2 h-2 rounded-full bg-[#facc15] shadow-[0_0_0_4px_rgba(250,204,21,0.25)]"></div>
-                                <span class="text-[11px] text-textGray font-[400] absolute top-4">Dhaka</span>
+                                <span class="text-[10px] lg:text-[11px] text-textGray font-[400] absolute top-4">Dhaka</span>
                             </div>
                             <div class="relative flex flex-col items-center">
                                 <i class="fas fa-plane text-brandDark bg-white px-2 text-[14px] z-10 relative -top-[1px]"></i>
-                                <span class="text-[11px] text-brandDark font-[700] absolute top-4 w-max">1 Stop</span>
+                                <span class="text-[10px] lg:text-[11px] text-brandDark font-[700] absolute top-4 w-max">1 Stop</span>
                             </div>
                             <div class="relative flex flex-col items-center">
                                 <div class="w-2 h-2 rounded-full bg-[#60a5fa] shadow-[0_0_0_4px_rgba(96,165,250,0.25)]"></div>
-                                <span class="text-[11px] text-textGray font-[400] absolute top-4">Dubai</span>
+                                <span class="text-[10px] lg:text-[11px] text-textGray font-[400] absolute top-4">Dubai</span>
                             </div>
                         </div>
                     </div>
-                    <div class="text-[22px] font-bold text-brandDark w-12 text-right">DXB</div>
+                    <div class="text-[20px] lg:text-[22px] font-[600] text-brandDark w-12 text-right">DXB</div>
                 </div>
 
-                <div class="mt-10 pt-1 flex justify-between items-center">
+                <div class="mt-8 lg:mt-10 pt-1 flex justify-between items-center">
                     <div class="flex items-center gap-2">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/100px-Emirates_logo.svg.png" alt="Emirates" class="w-6 h-6 object-contain">
+                        <img src="emirites.png" alt="Emirates" class="w-6 h-6 object-contain">
                         <span class="text-[11px] font-[600] text-brandDark ml-1">Emirates</span>
                     </div>
                     <div class="text-[11px] text-textGray font-[500]">
-                        <span class="text-[16px] font-[800] text-brandDark">$345</span> / person
+                        <span class="text-[15px] lg:text-[16px] font-[600] text-brandDark">$345</span> / person
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[20px] p-6 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start bg-white rounded-[20px] p-5 lg:p-6 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
                 <div class="flex justify-between items-start">
                     <div class="w-9 h-9 rounded-full bg-brandDark flex items-center justify-center text-white">
                         <i class="fas fa-plane transform -rotate-45 text-[13px]"></i>
                     </div>
                     <div class="flex gap-2 text-[10px] font-bold tracking-wide">
-                        <span class="bg-[#eff2fc] text-[#6b7af5] px-3 py-1.5 rounded-full">Best</span>
-                        <span class="bg-[#fff9e6] text-[#d6a000] px-3 py-1.5 rounded-full">Cheapest</span>
+                        <span class="bg-[#eff2fc] text-[#6b7af5] px-3 py-1.5 rounded-md">Best</span>
+                        <span class="bg-[#fff9e6] text-[#d6a000] px-3 py-1.5 rounded-md">Cheapest</span>
                     </div>
                 </div>
 
-                <div class="mt-8 flex items-center justify-between w-full h-12">
-                    <div class="text-[22px] font-bold text-brandDark w-12">DAC</div>
+                <div class="mt-6 lg:mt-8 flex items-center justify-between w-full h-12">
+                    <div class="text-[20px] lg:text-[22px] font-[600] text-brandDark w-12">DAC</div>
                     <div class="flex-1 mx-2 relative h-full flex items-center">
                         <div class="absolute inset-0 flex items-center w-full px-1">
                             <div class="w-full border-t-[1.5px] border-dashed border-[#d1d5db]"></div>
@@ -357,28 +357,28 @@
                         <div class="absolute inset-0 flex justify-between items-center">
                             <div class="relative flex flex-col items-center">
                                 <div class="w-2 h-2 rounded-full bg-[#facc15] shadow-[0_0_0_4px_rgba(250,204,21,0.25)]"></div>
-                                <span class="text-[11px] text-textGray font-[400] absolute top-4">Dhaka</span>
+                                <span class="text-[10px] lg:text-[11px] text-textGray font-[400] absolute top-4">Dhaka</span>
                             </div>
                             <div class="relative flex flex-col items-center">
                                 <i class="fas fa-plane text-brandDark bg-white px-2 text-[14px] z-10 relative -top-[1px]"></i>
-                                <span class="text-[11px] text-brandDark font-[700] absolute top-4 w-max">1 Stop</span>
+                                <span class="text-[10px] lg:text-[11px] text-brandDark font-[700] absolute top-4 w-max">1 Stop</span>
                             </div>
                             <div class="relative flex flex-col items-center">
                                 <div class="w-2 h-2 rounded-full bg-[#60a5fa] shadow-[0_0_0_4px_rgba(96,165,250,0.25)]"></div>
-                                <span class="text-[11px] text-textGray font-[400] absolute top-4">Dubai</span>
+                                <span class="text-[10px] lg:text-[11px] text-textGray font-[400] absolute top-4">Dubai</span>
                             </div>
                         </div>
                     </div>
-                    <div class="text-[22px] font-bold text-brandDark w-12 text-right">DXB</div>
+                    <div class="text-[20px] lg:text-[22px] font-[600] text-brandDark w-12 text-right">DXB</div>
                 </div>
 
-                <div class="mt-10 pt-1 flex justify-between items-center">
+                <div class="mt-8 lg:mt-10 pt-1 flex justify-between items-center">
                     <div class="flex items-center gap-2">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Jazeera_Airways_logo.svg/200px-Jazeera_Airways_logo.svg.png" alt="Jazeera" class="w-8 h-8 object-contain">
+                        <img src="jazera.png" alt="Jazeera" class="w-7 h-7 lg:w-8 lg:h-8 object-contain">
                         <span class="text-[11px] font-[600] text-brandDark leading-[1.2]">Jazeera<br>Airways</span>
                     </div>
                     <div class="text-[11px] text-textGray font-[500]">
-                        <span class="text-[16px] font-[800] text-brandDark">$345</span> / person
+                        <span class="text-[15px] lg:text-[16px] font-[600] text-brandDark">$345</span> / person
                     </div>
                 </div>
             </div>
@@ -388,23 +388,25 @@
 </section>
 
 
-<section class="bg-[#f5f6fa] py-16 px-8 w-full flex justify-center">
+<!-- Popular Hotels -->
+
+<section class="bg-[#f5f6fa] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
     <div class="w-full max-w-6xl">
         
-        <div class="flex justify-between items-end mb-8">
+        <div class="flex justify-between items-end mb-6 lg:mb-8">
             <div>
-                <span class="text-[13px] text-textGray font-[400] mb-1 block">Top Rated</span>
-                <h2 class="text-[28px] font-bold text-brandDark leading-tight">Popular Hotels</h2>
+                <span class="text-[12px] lg:text-[13px] text-textGray font-[400] mb-1 block">Top Rated</span>
+                <h2 class="text-[22px] lg:text-[28px] font-bold text-brandDark leading-tight">Popular Hotels</h2>
             </div>
-            <a href="#" class="text-[13px] font-[700] text-brandDark hover:text-brandBlue transition">View All</a>
+            <a href="#" class="hidden md:block text-[13px] font-[700] text-brandDark hover:text-brandBlue transition">View All</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar pb-4 md:pb-0">
             
-            <div class="bg-white rounded-[24px] p-4 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start bg-white rounded-[24px] p-3 lg:p-4 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
                 
-                <div class="relative w-full h-[220px] rounded-[16px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1542314831-c6a4d27ce66f?q=80&w=800&auto=format&fit=crop" alt="Grand Switzerland" class="w-full h-full object-cover">
+                <div class="relative w-full h-[200px] lg:h-[220px] rounded-[16px] overflow-hidden">
+                    <img src="hotel1.png" alt="Grand Switzerland" class="w-full h-full object-cover">
                     
                     <div class="absolute inset-y-0 w-full flex items-center justify-between px-3">
                         <button class="text-white/80 hover:text-white transition"><i class="fas fa-chevron-left text-sm drop-shadow-md"></i></button>
@@ -421,40 +423,40 @@
 
                 <div class="px-1 mt-4">
                     <div class="flex justify-between items-start">
-                        <h3 class="text-[18px] font-[700] text-brandDark">Grand Switzerland</h3>
-                        <div class="flex flex-col items-end">
-                            <div class="flex text-brandYellow text-[10px] gap-[2px]">
+                        <h3 class="text-[16px] lg:text-[18px] font-[700] text-brandDark pr-2 truncate">Grand Switzerland</h3>
+                        <div class="flex flex-col items-end whitespace-nowrap">
+                            <div class="flex text-brandYellow text-[9px] lg:text-[10px] gap-[2px]">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <span class="text-[10px] text-textGray font-[500] mt-1">4.8 (3.0K Reviews)</span>
+                            <span class="text-[9px] lg:text-[10px] text-textGray font-[500] mt-1">4.8 (3.0K Reviews)</span>
                         </div>
                     </div>
 
-                    <div class="mt-1 flex items-center gap-1.5 text-[13px] font-[600] text-brandDark">
+                    <div class="mt-1 flex items-center gap-1.5 text-[12px] lg:text-[13px] font-[600] text-brandDark">
                         <i class="fas fa-map-marker-alt text-brandDark"></i> Switzerland
                     </div>
 
-                    <div class="flex justify-between items-end mt-5">
+                    <div class="flex justify-between items-end mt-4 lg:mt-5">
                         <div class="flex flex-col gap-1.5">
-                            <div class="flex items-center gap-2 text-[11px] text-textGray font-[500]">
+                            <div class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-[11px] text-textGray font-[500]">
                                 <i class="fas fa-chart-line text-[#f59e0b] w-3"></i> Breakfast included
                             </div>
-                            <div class="flex items-center gap-3 text-[11px] text-textGray font-[500]">
-                                <span class="flex items-center gap-1.5"><i class="fas fa-wifi text-[#10b981]"></i> Free Wifi</span>
-                                <span class="flex items-center gap-1.5"><i class="fas fa-snowflake text-[#60a5fa]"></i> Spa</span>
+                            <div class="flex items-center gap-2 lg:gap-3 text-[10px] lg:text-[11px] text-textGray font-[500]">
+                                <span class="flex items-center gap-1 lg:gap-1.5"><i class="fas fa-wifi text-[#10b981]"></i> Free Wifi</span>
+                                <span class="flex items-center gap-1 lg:gap-1.5"><i class="fas fa-snowflake text-[#60a5fa]"></i> Spa</span>
                             </div>
                         </div>
                         <div class="text-right leading-tight">
-                            <div class="text-[20px] font-[800] text-brandDark">$345</div>
-                            <div class="text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
+                            <div class="text-[18px] lg:text-[20px] font-[600] text-brandDark">$345</div>
+                            <div class="text-[9px] lg:text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[24px] p-4 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
-                <div class="relative w-full h-[220px] rounded-[16px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=800&auto=format&fit=crop" alt="Tiny House" class="w-full h-full object-cover">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start bg-white rounded-[24px] p-3 lg:p-4 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
+                <div class="relative w-full h-[200px] lg:h-[220px] rounded-[16px] overflow-hidden">
+                    <img src="hotel2.png" alt="Tiny House" class="w-full h-full object-cover">
                     
                     <div class="absolute inset-y-0 w-full flex items-center justify-between px-3">
                         <button class="text-white/80 hover:text-white transition"><i class="fas fa-chevron-left text-sm drop-shadow-md"></i></button>
@@ -471,40 +473,40 @@
 
                 <div class="px-1 mt-4">
                     <div class="flex justify-between items-start">
-                        <h3 class="text-[18px] font-[700] text-brandDark truncate pr-2">Tiny House Dreich...</h3>
+                        <h3 class="text-[16px] lg:text-[18px] font-[700] text-brandDark truncate pr-2">Tiny House Dreich...</h3>
                         <div class="flex flex-col items-end whitespace-nowrap">
-                            <div class="flex text-brandYellow text-[10px] gap-[2px]">
+                            <div class="flex text-brandYellow text-[9px] lg:text-[10px] gap-[2px]">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <span class="text-[10px] text-textGray font-[500] mt-1">4.8 (3.0K Reviews)</span>
+                            <span class="text-[9px] lg:text-[10px] text-textGray font-[500] mt-1">4.8 (3.0K Reviews)</span>
                         </div>
                     </div>
 
-                    <div class="mt-1 flex items-center gap-1.5 text-[13px] font-[600] text-brandDark">
+                    <div class="mt-1 flex items-center gap-1.5 text-[12px] lg:text-[13px] font-[600] text-brandDark">
                         <i class="fas fa-map-marker-alt text-brandDark"></i> Germany, Trier
                     </div>
 
-                    <div class="flex justify-between items-end mt-5">
+                    <div class="flex justify-between items-end mt-4 lg:mt-5">
                         <div class="flex flex-col gap-1.5">
-                            <div class="flex items-center gap-2 text-[11px] text-textGray font-[500]">
+                            <div class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-[11px] text-textGray font-[500]">
                                 <i class="fas fa-chart-line text-[#f59e0b] w-3"></i> Breakfast included
                             </div>
-                            <div class="flex items-center gap-3 text-[11px] text-textGray font-[500]">
-                                <span class="flex items-center gap-1.5"><i class="fas fa-wifi text-[#10b981]"></i> Free Wifi</span>
-                                <span class="flex items-center gap-1.5"><i class="fas fa-snowflake text-[#60a5fa]"></i> Spa</span>
+                            <div class="flex items-center gap-2 lg:gap-3 text-[10px] lg:text-[11px] text-textGray font-[500]">
+                                <span class="flex items-center gap-1 lg:gap-1.5"><i class="fas fa-wifi text-[#10b981]"></i> Free Wifi</span>
+                                <span class="flex items-center gap-1 lg:gap-1.5"><i class="fas fa-snowflake text-[#60a5fa]"></i> Spa</span>
                             </div>
                         </div>
                         <div class="text-right leading-tight">
-                            <div class="text-[20px] font-[800] text-brandDark">$345</div>
-                            <div class="text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
+                            <div class="text-[18px] lg:text-[20px] font-[600] text-brandDark">$345</div>
+                            <div class="text-[9px] lg:text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[24px] p-4 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
-                <div class="relative w-full h-[220px] rounded-[16px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop" alt="Grand Switzerland Resort" class="w-full h-full object-cover">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start bg-white rounded-[24px] p-3 lg:p-4 shadow-sm border border-[#eef0f5] hover:shadow-md transition">
+                <div class="relative w-full h-[200px] lg:h-[220px] rounded-[16px] overflow-hidden">
+                    <img src="hotel3.png" alt="Grand Switzerland Resort" class="w-full h-full object-cover">
                     
                     <div class="absolute inset-y-0 w-full flex items-center justify-between px-3">
                         <button class="text-white/80 hover:text-white transition"><i class="fas fa-chevron-left text-sm drop-shadow-md"></i></button>
@@ -521,32 +523,32 @@
 
                 <div class="px-1 mt-4">
                     <div class="flex justify-between items-start">
-                        <h3 class="text-[18px] font-[700] text-brandDark">Grand Switzerland</h3>
-                        <div class="flex flex-col items-end">
-                            <div class="flex text-brandYellow text-[10px] gap-[2px]">
+                        <h3 class="text-[16px] lg:text-[18px] font-[700] text-brandDark pr-2 truncate">Grand Switzerland</h3>
+                        <div class="flex flex-col items-end whitespace-nowrap">
+                            <div class="flex text-brandYellow text-[9px] lg:text-[10px] gap-[2px]">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <span class="text-[10px] text-textGray font-[500] mt-1">4.8 (3.0K Reviews)</span>
+                            <span class="text-[9px] lg:text-[10px] text-textGray font-[500] mt-1">4.8 (3.0K Reviews)</span>
                         </div>
                     </div>
 
-                    <div class="mt-1 flex items-center gap-1.5 text-[13px] font-[600] text-brandDark">
+                    <div class="mt-1 flex items-center gap-1.5 text-[12px] lg:text-[13px] font-[600] text-brandDark">
                         <i class="fas fa-map-marker-alt text-brandDark"></i> Switzerland
                     </div>
 
-                    <div class="flex justify-between items-end mt-5">
+                    <div class="flex justify-between items-end mt-4 lg:mt-5">
                         <div class="flex flex-col gap-1.5">
-                            <div class="flex items-center gap-2 text-[11px] text-textGray font-[500]">
+                            <div class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-[11px] text-textGray font-[500]">
                                 <i class="fas fa-chart-line text-[#f59e0b] w-3"></i> Breakfast included
                             </div>
-                            <div class="flex items-center gap-3 text-[11px] text-textGray font-[500]">
-                                <span class="flex items-center gap-1.5"><i class="fas fa-wifi text-[#10b981]"></i> Free Wifi</span>
-                                <span class="flex items-center gap-1.5"><i class="fas fa-snowflake text-[#60a5fa]"></i> Spa</span>
+                            <div class="flex items-center gap-2 lg:gap-3 text-[10px] lg:text-[11px] text-textGray font-[500]">
+                                <span class="flex items-center gap-1 lg:gap-1.5"><i class="fas fa-wifi text-[#10b981]"></i> Free Wifi</span>
+                                <span class="flex items-center gap-1 lg:gap-1.5"><i class="fas fa-snowflake text-[#60a5fa]"></i> Spa</span>
                             </div>
                         </div>
                         <div class="text-right leading-tight">
-                            <div class="text-[20px] font-[800] text-brandDark">$345</div>
-                            <div class="text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
+                            <div class="text-[18px] lg:text-[20px] font-[600] text-brandDark">$345</div>
+                            <div class="text-[9px] lg:text-[10px] text-textGray font-[400] mt-0.5">for 1 Night, per person</div>
                         </div>
                     </div>
                 </div>
@@ -556,23 +558,30 @@
     </div>
 </section>
 
+<!-- Experiences -->
 
-<section class="bg-[#f5f6fa] py-16 px-8 w-full flex justify-center">
+<section class="bg-[#f5f6fa] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
+    
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
     <div class="w-full max-w-6xl">
         
-        <div class="flex justify-between items-end mb-8">
+        <div class="flex justify-between items-end mb-6 lg:mb-8">
             <div>
-                <span class="text-[13px] text-textGray font-[400] mb-1 block">Experiences</span>
-                <h2 class="text-[28px] font-[700] text-brandDark leading-tight">Featured Activities</h2>
+                <span class="text-[12px] lg:text-[13px] text-textGray font-[400] mb-1 block">Experiences</span>
+                <h2 class="text-[22px] lg:text-[28px] font-[700] text-brandDark leading-tight">Featured Activities</h2>
             </div>
-            <a href="#" class="text-[13px] font-[700] text-brandDark hover:text-brandBlue transition">View All</a>
+            <a href="#" class="hidden md:block text-[13px] font-[700] text-brandDark hover:text-brandBlue transition">View All</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar pb-4 md:pb-0">
             
-            <div class="flex flex-col gap-3 group cursor-pointer">
-                <div class="relative w-full h-[220px] rounded-[16px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop" alt="Snorkeling Boat" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start flex flex-col gap-3 group cursor-pointer">
+                <div class="relative w-full h-[200px] lg:h-[220px] rounded-[16px] overflow-hidden">
+                    <img src="act1.jpg" alt="Snorkeling Boat" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     
                     <div class="absolute top-4 left-4 bg-[#1b1d3d] text-white text-[11px] font-[500] px-3.5 py-1.5 rounded-full drop-shadow-md">
                         20% off
@@ -581,29 +590,29 @@
 
                 <div class="flex flex-col gap-1 px-1 mt-1">
                     <div class="flex items-center gap-2">
-                        <div class="flex text-brandYellow text-[10px] gap-[2px]">
+                        <div class="flex text-brandYellow text-[9px] lg:text-[10px] gap-[2px]">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star text-gray-300"></i>
                         </div>
-                        <span class="text-[10px] text-textGray font-[500]">4.8 (3.0K Reviews)</span>
+                        <span class="text-[9px] lg:text-[10px] text-textGray font-[500]">4.8 (3.0K Reviews)</span>
                     </div>
                     
-                    <h3 class="text-[18px] font-[700] text-brandDark mt-1">Coral Reef Snorkeling Tour</h3>
+                    <h3 class="text-[16px] lg:text-[18px] font-[700] text-brandDark mt-1">Coral Reef Snorkeling Tour</h3>
                     
-                    <div class="flex items-center gap-1.5 text-[13px] font-[600] text-brandDark mt-0.5">
+                    <div class="flex items-center gap-1.5 text-[12px] lg:text-[13px] font-[600] text-brandDark mt-0.5">
                         <i class="fas fa-map-marker-alt text-brandDark"></i> Switzerland
                     </div>
                     
-                    <div class="mt-3 flex items-baseline gap-1.5">
-                        <span class="text-[10px] text-textGray font-[500] uppercase tracking-wider">From</span>
-                        <span class="text-[20px] font-[800] text-brandDark">$99</span>
-                        <span class="text-[11px] text-textGray font-[400]">/person</span>
+                    <div class="mt-2 lg:mt-3 flex items-baseline gap-1.5">
+                        <span class="text-[9px] lg:text-[10px] text-textGray font-[500] uppercase tracking-wider">From</span>
+                        <span class="text-[18px] lg:text-[20px] font-[800] text-brandDark">$99</span>
+                        <span class="text-[10px] lg:text-[11px] text-textGray font-[400]">/person</span>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-3 group cursor-pointer">
-                <div class="relative w-full h-[220px] rounded-[16px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="Mountain Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start flex flex-col gap-3 group cursor-pointer">
+                <div class="relative w-full h-[200px] lg:h-[220px] rounded-[16px] overflow-hidden">
+                    <img src="act2.jpg" alt="Mountain Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     
                     <div class="absolute top-4 left-4 bg-[#1b1d3d] text-white text-[11px] font-[500] px-3.5 py-1.5 rounded-full drop-shadow-md">
                         Save Deals
@@ -612,29 +621,29 @@
 
                 <div class="flex flex-col gap-1 px-1 mt-1">
                     <div class="flex items-center gap-2">
-                        <div class="flex text-brandYellow text-[10px] gap-[2px]">
+                        <div class="flex text-brandYellow text-[9px] lg:text-[10px] gap-[2px]">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star text-gray-300"></i>
                         </div>
-                        <span class="text-[10px] text-textGray font-[500]">4.8 (3.0K Reviews)</span>
+                        <span class="text-[9px] lg:text-[10px] text-textGray font-[500]">4.8 (3.0K Reviews)</span>
                     </div>
                     
-                    <h3 class="text-[18px] font-[700] text-brandDark mt-1">Coral Reef Snorkeling Tour</h3>
+                    <h3 class="text-[16px] lg:text-[18px] font-[700] text-brandDark mt-1">Coral Reef Snorkeling Tour</h3>
                     
-                    <div class="flex items-center gap-1.5 text-[13px] font-[600] text-brandDark mt-0.5">
+                    <div class="flex items-center gap-1.5 text-[12px] lg:text-[13px] font-[600] text-brandDark mt-0.5">
                         <i class="fas fa-map-marker-alt text-brandDark"></i> Switzerland
                     </div>
                     
-                    <div class="mt-3 flex items-baseline gap-1.5">
-                        <span class="text-[10px] text-textGray font-[500] uppercase tracking-wider">From</span>
-                        <span class="text-[20px] font-[800] text-brandDark">$99</span>
-                        <span class="text-[11px] text-textGray font-[400]">/person</span>
+                    <div class="mt-2 lg:mt-3 flex items-baseline gap-1.5">
+                        <span class="text-[9px] lg:text-[10px] text-textGray font-[500] uppercase tracking-wider">From</span>
+                        <span class="text-[18px] lg:text-[20px] font-[800] text-brandDark">$99</span>
+                        <span class="text-[10px] lg:text-[11px] text-textGray font-[400]">/person</span>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-3 group cursor-pointer">
-                <div class="relative w-full h-[220px] rounded-[16px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1498307833015-e7b400441eb8?q=80&w=800&auto=format&fit=crop" alt="Red Bridge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start flex flex-col gap-3 group cursor-pointer">
+                <div class="relative w-full h-[200px] lg:h-[220px] rounded-[16px] overflow-hidden">
+                    <img src="act3.jpg" alt="Red Bridge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     
                     <div class="absolute top-4 left-4 bg-[#1b1d3d] text-white text-[11px] font-[500] px-3.5 py-1.5 rounded-full drop-shadow-md">
                         Best Saves
@@ -643,22 +652,22 @@
 
                 <div class="flex flex-col gap-1 px-1 mt-1">
                     <div class="flex items-center gap-2">
-                        <div class="flex text-brandYellow text-[10px] gap-[2px]">
+                        <div class="flex text-brandYellow text-[9px] lg:text-[10px] gap-[2px]">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star text-gray-300"></i>
                         </div>
-                        <span class="text-[10px] text-textGray font-[500]">4.8 (3.0K Reviews)</span>
+                        <span class="text-[9px] lg:text-[10px] text-textGray font-[500]">4.8 (3.0K Reviews)</span>
                     </div>
                     
-                    <h3 class="text-[18px] font-[700] text-brandDark mt-1">Coral Reef Snorkeling Tour</h3>
+                    <h3 class="text-[16px] lg:text-[18px] font-[700] text-brandDark mt-1">Coral Reef Snorkeling Tour</h3>
                     
-                    <div class="flex items-center gap-1.5 text-[13px] font-[600] text-brandDark mt-0.5">
+                    <div class="flex items-center gap-1.5 text-[12px] lg:text-[13px] font-[600] text-brandDark mt-0.5">
                         <i class="fas fa-map-marker-alt text-brandDark"></i> Switzerland
                     </div>
                     
-                    <div class="mt-3 flex items-baseline gap-1.5">
-                        <span class="text-[10px] text-textGray font-[500] uppercase tracking-wider">From</span>
-                        <span class="text-[20px] font-[800] text-brandDark">$99</span>
-                        <span class="text-[11px] text-textGray font-[400]">/person</span>
+                    <div class="mt-2 lg:mt-3 flex items-baseline gap-1.5">
+                        <span class="text-[9px] lg:text-[10px] text-textGray font-[500] uppercase tracking-wider">From</span>
+                        <span class="text-[18px] lg:text-[20px] font-[800] text-brandDark">$99</span>
+                        <span class="text-[10px] lg:text-[11px] text-textGray font-[400]">/person</span>
                     </div>
                 </div>
             </div>
@@ -667,65 +676,64 @@
     </div>
 </section>
 
+<!-- Special Offers -->
 
-
-<section class="bg-[#f5f6fa] py-16 px-8 w-full flex justify-center">
+<section class="bg-[#f5f6fa] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
     <div class="w-full max-w-6xl">
         
-        <div class="mb-8">
-            <span class="text-[13px] text-textGray font-[400] mb-1 block">Special Offers</span>
-            <h2 class="text-[28px] font-[700] text-brandDark leading-tight">Promotional Offers</h2>
+        <div class="mb-6 lg:mb-8">
+            <span class="text-[12px] lg:text-[13px] text-textGray font-[400] mb-1 block">Special Offers</span>
+            <h2 class="text-[22px] lg:text-[28px] font-[700] text-brandDark leading-tight">Promotional Offers</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar pb-4 md:pb-0">
             
-            <div class="relative w-full h-[220px] rounded-[24px] overflow-hidden bg-[#3db1c5] shadow-sm group cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop" alt="Adventure graphic" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay group-hover:scale-105 transition duration-500">
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start relative h-[200px] lg:h-[220px] rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-sm group cursor-pointer bg-white">
+                <img src="offer1.jpg" alt="Adventure graphic" class="absolute inset-0 w-full h-full object-cover object-right group-hover:scale-105 transition duration-500">
                 
-                <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                    <h3 class="text-white text-[26px] font-[700] leading-[1.15] w-3/4">
+                <div class="absolute inset-0 p-5 lg:p-6 flex flex-col justify-between z-10">
+                    <h3 class="text-[#ffff] text-[22px] lg:text-[32px] font-[600] leading-[1.15] w-[75%]">
                         Your next<br>adventure<br>begins
                     </h3>
                     
-                    <div class="bg-white text-brandDark text-[11px] font-[700] px-4 py-2 rounded-[8px] w-max shadow-md">
-                        -30% Off Hotel Bookings
-                    </div>
-                </div>
+                  <div class="bg-white text-[#1E2358] text-[10px] lg:text-[11px] font-[700] px-3 lg:px-4 py-1.5 lg:py-2 rounded-[8px] w-max shadow-[4px_6px_0px_0px_#00000040]">
+    -30% Off Hotel Bookings
+</div>                </div>
             </div>
 
-            <div class="relative w-full h-[220px] rounded-[24px] overflow-hidden bg-[#0084ff] shadow-sm group cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=800&auto=format&fit=crop" alt="Flights graphic" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition duration-500">
-                
-                <div class="absolute top-4 left-0 bg-[#e72d2d] text-white text-[11px] font-[600] px-3 py-1.5 rounded-r-[6px] z-20 shadow-sm">
-                    Limited-Time Offer
-                </div>
+         <div class="flex-shrink-0 w-[85%] md:w-full snap-start relative h-[200px] lg:h-[220px] rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-sm group cursor-pointer bg-[#0695DB]">
+    
+    
+     <img src="offer2.png" alt="Flights graphic" class="[mask-image:linear-gradient(to_right,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-composite:source-in] absolute right-0 top-0 h-full w-[55%] lg:w-[50%] object-cover lg:object-contain object-left lg:object-right transition duration-500">
+    
+    <div class="absolute top-4 left-0 bg-[#e72d2d] text-white text-[10px] lg:text-[11px] font-[600] px-3 py-1.5 rounded-r-[6px] z-20 shadow-sm">
+        Limited-Time Offer
+    </div>
 
-                <div class="absolute inset-0 p-6 pt-12 flex flex-col justify-end z-10">
-                    <h3 class="text-white text-[26px] font-[700] leading-[1.15] w-4/5 mb-1.5">
-                        Up to 50%<br>Savings<br>on Flights
-                    </h3>
-                    <p class="text-white text-[12px] font-[500]">18 - 20 March 2026</p>
-                </div>
-            </div>
-
-            <div class="relative w-full h-[220px] rounded-[24px] overflow-hidden bg-[#243b66] shadow-sm group cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=800&auto=format&fit=crop" alt="Journey graphic" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition duration-500">
+    <div class="absolute inset-y-0 left-0 p-5 lg:p-6 pt-12 flex flex-col justify-end z-10 w-[60%] lg:w-[55%]">
+        <h3 class="text-white text-[22px] lg:text-[30px] font-[600] leading-[1.15] mb-1.5">
+            Up to 50%<br>Savings<br>on Flights
+        </h3>
+        <p class="text-white/90 text-[11px] lg:text-[12px] font-[500]">18 - 20 March 2026</p>
+    </div>
+</div>
+            <div class="flex-shrink-0 w-[85%] md:w-full snap-start relative h-[200px] lg:h-[220px] rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-sm group cursor-pointer bg-[#1A2258]">
+                <img src="offer3.jpg" alt="Journey graphic" class="absolute inset-0 w-full h-full object-cover scale-x-[-1] ">
                 
-                <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                    <h3 class="text-white text-[26px] font-[700] leading-[1.15] w-3/4">
+                <div class="absolute inset-0 p-5 lg:p-6 flex flex-col justify-between z-10">
+                    <h3 class="text-white text-[22px] lg:text-[32px] font-[600] leading-[1.15] w-[75%]">
                         Start your<br>next<br>journey
                     </h3>
-                    
-                    <div class="bg-white text-brandDark text-[11px] font-[700] px-4 py-2 rounded-[8px] w-max shadow-md">
-                        50% Off Hotel Bookings
-                    </div>
+                     
+                    <div class="bg-white text-[#1E2358] text-[10px] lg:text-[11px] font-[700] px-3 lg:px-4 py-1.5 lg:py-2 rounded-[8px] w-max shadow-[4px_6px_0px_0px_#00000040]">
+    50% Off Hotel Bookings
+</div>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
-
 
 <footer class="bg-[#1b1e44] pt-16 pb-8 px-6 md:px-12 w-full flex justify-center font-sans">
     <div class="w-full max-w-6xl">
@@ -735,7 +743,7 @@
             <div class="lg:w-[40%] flex flex-col gap-8">
                 
                 <div>
-                    <img src="./headerlogo-white.png" alt="Skyvela Logo" class="h-10 w-auto mb-5 object-contain">
+                    <img src="./footer.png" alt="Skyvela Logo" class="h-10 w-auto mb-5 object-contain">
                     <p class="text-[13px] text-white/80 leading-relaxed pr-4">
                         Your smart travel companion for flights, hotels, activities and more — across the globe.
                     </p>
