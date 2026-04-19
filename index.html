@@ -138,8 +138,8 @@
 
     <header class="bg-white shadow-sm relative z-20 flex justify-center items-center mx-auto transition-all duration-300
             /* Mobile Specs: Fixed 375x80 */
-             h-[80px]
-            lg:h-[80px]">
+             h-[80px] w-[375px]
+            lg:w-full lg:h-[80px]">
 
         <div class="w-[343px] lg:w-[1140px] h-full flex justify-between items-center opacity-100 rotate-0">
 
@@ -203,10 +203,10 @@
             <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Travel</h4>
             <ul class="space-y-4">
                 <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./flight.svg" class="w-[20px] object-contain"> Flights</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./pakage.svg" class="w-[20px] object-contain"> Packages</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./act.svg" class="w-[20px] object-contain"> Activities</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./car.svg" class="w-[20px] object-contain"> Transfers</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./5hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./package.svg" class="w-[20px] object-contain"> Packages</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./activities.svg" class="w-[20px] object-contain"> Activities</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./ven.svg" class="w-[20px] object-contain"> Transfers</a></li>
             </ul>
         </div>
 
@@ -238,101 +238,72 @@
     </div>
 </div>
     <!-- For Mobiels -->
+<div id="mobileBackdrop" class="fixed inset-0 bg-black/50 z-[90] hidden opacity-0 transition-opacity duration-300 lg:hidden" onclick="toggleMenu()"></div>
 
-    <div id="mobileBackdrop"
-        class="fixed inset-0 bg-black/60 z-[99] hidden lg:hidden transition-opacity duration-300 opacity-0"></div>
+<div id="mobileMenu" class="fixed top-0 right-0 w-[300px] h-full bg-white z-[100] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl lg:hidden overflow-y-auto">
+    
+    <div class="flex justify-end py-2 px-5">
+        <button onclick="toggleMenu()" class="text-[#1E2358] hover:text-gray-500 transition text-2xl cursor-pointer">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
-    <div id="mobileMenu"
-        class="fixed top-0 right-0 h-full w-[310px] sm:w-[350px] bg-white z-[100] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col lg:hidden">
+    <div class="px-6 pb-10">
+        
+        <div>
+            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Account</h4>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./booking.svg" class="w-[20px] object-contain" alt="My Booking"> My Booking</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./saved.svg" class="w-[20px] object-contain" alt="Saved"> Saved</a></li>
+            </ul>
+        </div>
 
-        <div class="flex items-center justify-between p-5 border-b border-gray-100">
-            <img src="./headerlogo.png" alt="Skyvela Logo" class="h-7 object-contain">
-            <button onclick="toggleMenu()"
-                class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-[#1E2358] hover:bg-gray-50 rounded-full transition">
-                <i class="fas fa-times text-lg"></i>
+        <div class="w-full border-t border-gray-200 my-6"></div>
+
+        <div>
+            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Travel</h4>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./flight.svg" class="w-[20px] object-contain"> Flights</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./5hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./package.svg" class="w-[20px] object-contain"> Packages</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./activities.svg" class="w-[20px] object-contain"> Activities</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./ven.svg" class="w-[20px] object-contain"> Transfers</a></li>
+            </ul>
+        </div>
+
+        <div class="w-full border-t border-gray-200 my-6"></div>
+
+        <div>
+            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Company</h4>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./about.svg" class="w-[20px] object-contain" alt="About Us"> About Us</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./blog.svg" class="w-[20px] object-contain" alt="Blog"> Blog</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./gallery.svg" class="w-[20px] object-contain" alt="Gallery"> Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="w-full border-t border-gray-200 my-6"></div>
+
+        <div>
+            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Support</h4>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./help.svg" class="w-[20px] object-contain" alt="Help Center"> Help Center</a></li>
+                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./contact.svg" class="w-[20px] object-contain" alt="Contact Us"> Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="w-full border-t border-gray-200 my-6"></div>
+
+        <div>
+            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Region & Currency</h4>
+            <button class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 w-full text-left transition">
+                <img src="Flag.png" class="w-[24px] h-auto object-contain rounded-sm" alt="US Flag"> 
+                English - USD
             </button>
         </div>
 
-        <div class="flex-1 overflow-y-auto p-5 space-y-6">
-
-            <div class="flex items-center gap-4 group cursor-pointer bg-[#f8f9fc] p-3.5 rounded-xl">
-                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1E2358] shadow-sm">
-                    <i class="far fa-user text-lg"></i>
-                </div>
-                <div>
-                    <p class="text-[15px] font-bold text-[#1E2358]">Sign In</p>
-                    <p class="text-[12px] text-gray-500 mt-0.5">Access your account</p>
-                </div>
-            </div>
-
-            <nav class="space-y-1">
-                <a href="#"
-                    class="flex items-center gap-4 py-2.5 text-[#1E2358] font-[600] hover:text-brandBlue transition">
-                    <img src="./flight.svg" class="w-5 h-5 opacity-70"> Flights
-                </a>
-                <a href="#"
-                    class="flex items-center gap-4 py-2.5 text-[#1E2358] font-[600] hover:text-brandBlue transition">
-                    <img src="./hotel.svg" class="w-5 h-5 opacity-70"> Hotels
-                </a>
-                <a href="#"
-                    class="flex items-center gap-4 py-2.5 text-[#1E2358] font-[600] hover:text-brandBlue transition">
-                    <img src="./pakage.svg" class="w-5 h-5 opacity-70"> Packages
-                </a>
-                <a href="#"
-                    class="flex items-center gap-4 py-2.5 text-[#1E2358] font-[600] hover:text-brandBlue transition">
-                    <img src="./act.svg" class="w-5 h-5 opacity-70"> Activities
-                </a>
-                <a href="#"
-                    class="flex items-center gap-4 py-2.5 text-[#1E2358] font-[600] hover:text-brandBlue transition">
-                    <img src="./car.svg" class="w-5 h-5 opacity-70"> Transfers
-                </a>
-            </nav>
-
-            <div class="h-[1px] bg-gray-100 w-full"></div>
-
-            <div class="space-y-3">
-                <div class="flex items-center justify-between group cursor-pointer py-1">
-                    <div class="flex items-center gap-3">
-                        <img src="./Flag.png" class="w-6 h-4 rounded-[2px] object-cover border border-gray-200">
-                        <span class="font-[600] text-[#1E2358] text-[14px]">English</span>
-                    </div>
-                    <i class="fas fa-chevron-right text-[10px] text-gray-400"></i>
-                </div>
-                <div class="flex items-center justify-between group cursor-pointer py-1">
-                    <div class="flex items-center gap-3">
-                        <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-[#1E2358]">
-                            <i class="fas fa-dollar-sign text-[12px]"></i>
-                        </div>
-                        <span class="font-[600] text-[#1E2358] text-[14px]">USD</span>
-                    </div>
-                    <i class="fas fa-chevron-right text-[10px] text-gray-400"></i>
-                </div>
-            </div>
-
-            <div class="h-[1px] bg-gray-100 w-full"></div>
-
-            <div class="flex flex-col gap-3.5 text-[14px] font-[500] text-gray-500">
-                <a href="#" class="hover:text-[#1E2358]">Help Center</a>
-                <a href="#" class="hover:text-[#1E2358]">Blog</a>
-                <a href="#" class="hover:text-[#1E2358]">Contact Us</a>
-            </div>
-        </div>
-
-        <div class="p-5 bg-gray-50 flex justify-center gap-5">
-            <a href="#"
-                class="w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center shadow-sm hover:text-white hover:bg-[#1E2358] transition"><i
-                    class="fab fa-facebook-f text-sm"></i></a>
-            <a href="#"
-                class="w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center shadow-sm hover:text-white hover:bg-[#1E2358] transition"><i
-                    class="fab fa-linkedin-in text-sm"></i></a>
-            <a href="#"
-                class="w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center shadow-sm hover:text-white hover:bg-[#1E2358] transition"><i
-                    class="fab fa-twitter text-sm"></i></a>
-            <a href="#"
-                class="w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center shadow-sm hover:text-white hover:bg-[#1E2358] transition"><i
-                    class="fab fa-instagram text-sm"></i></a>
-        </div>
     </div>
+</div>
     <!-- Heroo section -->
 
 
@@ -500,7 +471,7 @@
     </div>
     <!-- Flight featured -->
 
-    <section class="bg-[#EDEEF1] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
+    <section class="bg-[#EDEEF1] py-10 lg:py-16 pl-4 lg:px-8 w-full flex justify-center overflow-hidden">
 
         <style>
             .hide-scrollbar::-webkit-scrollbar {
@@ -733,7 +704,7 @@
 
     <!-- Popular Hotels -->
 
-    <section class="bg-[#EDEEF1] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
+    <section class="bg-[#EDEEF1] py-10 lg:py-16 pl-4 lg:px-8 w-full flex justify-center overflow-hidden">
         <div class="w-full max-w-6xl">
 
             <div class="flex justify-between items-end mb-6 lg:mb-8">
@@ -934,7 +905,7 @@
 
     <!-- Experiences -->
 
-    <section class="bg-[#EDEEF1] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
+    <section class="bg-[#EDEEF1] py-10 lg:py-16 pl-4 lg:px-8 w-full flex justify-center overflow-hidden">
 
         <style>
             .hide-scrollbar::-webkit-scrollbar {
@@ -1083,7 +1054,7 @@
 
     <!-- Special Offers -->
 
-    <section class="bg-[#EDEEF1] py-10 lg:py-16 px-4 lg:px-8 w-full flex justify-center overflow-hidden">
+    <section class="bg-[#EDEEF1] py-10 lg:py-16 pl-4 lg:px-8 w-full flex justify-center overflow-hidden">
         <div class="w-full max-w-6xl">
 
             <div class="mb-6 lg:mb-8">
@@ -1186,29 +1157,29 @@
                         <h4 class="text-[14px] font-[600] text-white mb-3">Language</h4>
                         <div class="flex flex-wrap gap-2">
                             <button
-                                class="bg-[#2c357f] text-white text-[12px] font-[500] px-4 py-2 rounded-md transition">English</button>
+                                class="w-[60px] lg:w-[74px] h-[40px] bg-[#2c357f] text-white text-[16px] font-[500] px-4 py-2 rounded-md transition">English</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">বাংলা</button>
+                                class="w-[60px] lg:w-[74px] h-[40px] bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[16px] font-[500] px-4 py-2 rounded-md transition">বাংলা</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">Français</button>
+                                class="w-[60px] lg:w-[74px] h-[40px] bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[16px] font-[500] px-4 py-2 rounded-md transition">Français</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">عربي</button>
+                                class="w-[60px] lg:w-[74px] h-[40px] bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[16px] font-[500] px-4 py-2 rounded-md transition">عربي</button>
                         </div>
                     </div>
 
                     <div>
                         <h4 class="text-[14px] font-[600] text-white mb-3">Currency</h4>
-                        <div class="flex flex-wrap gap-2">
+                        <div class="lg:w-[404px] flex flex-wrap gap-1">
                             <button
-                                class="bg-[#2c357f] text-white text-[12px] font-[500] px-4 py-2 rounded-md transition">USD</button>
+                                class="bg-[#2c357f] w-[78px] lg:w-[70px] h-[40px] text-white text-[12px] font-[500] px-4 py-2 rounded-md transition">USD</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">EUR</button>
+                                class="bg-[#24285b] w-[78px] lg:w-[70px] h-[40px] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">EUR</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">GBP</button>
+                                class="bg-[#24285b] w-[78px] lg:w-[70px] h-[40px] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">GBP</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">BDT</button>
+                                class="bg-[#24285b] w-[78px] lg:w-[70px] h-[40px] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">BDT</button>
                             <button
-                                class="bg-[#24285b] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">AED</button>
+                                class="bg-[#24285b] w-[78px] lg:w-[70px] h-[40px] text-white/70 hover:text-white hover:bg-[#2c357f] text-[12px] font-[500] px-4 py-2 rounded-md transition">AED</button>
                         </div>
                     </div>
                 </div>
