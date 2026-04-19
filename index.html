@@ -95,36 +95,83 @@
 
 
         function activateTab(clickedBtn) {
-            // 1. Get all the tabs
             const allTabs = document.querySelectorAll('.tab-btn');
 
-            // 2. These are your exact Tailwind classes for Active and Inactive states
             const activeClasses = ['text-brandBlue', 'border-b-[3px]', 'border-brandBlue'];
             const inactiveClasses = ['text-textGray', 'hover:text-brandDark'];
 
-            // 3. Loop through all tabs to reset them to the inactive style
             allTabs.forEach(btn => {
-                // Remove active styles, add inactive styles
                 btn.classList.remove(...activeClasses);
                 btn.classList.add(...inactiveClasses);
 
-                // Make the image slightly transparent again
                 const img = btn.querySelector('img');
                 if (img) {
                     img.classList.add('opacity-60');
                 }
             });
 
-            // 4. Apply the active style ONLY to the button that was clicked
             clickedBtn.classList.remove(...inactiveClasses);
             clickedBtn.classList.add(...activeClasses);
 
-            // Make the clicked button's image fully visible
             const clickedImg = clickedBtn.querySelector('img');
             if (clickedImg) {
                 clickedImg.classList.remove('opacity-60');
             }
         }
+
+
+        function activateTripType(clickedLabel) {
+            const allLabels = document.querySelectorAll('.trip-type-label');
+
+            const activeClasses = ['bg-brandDark', 'text-white', 'radio-dark'];
+            const inactiveClasses = ['bg-gray-100', 'hover:bg-gray-200', 'text-gray-700', 'transition', 'radio-light'];
+
+            allLabels.forEach(label => {
+                label.classList.remove(...activeClasses);
+                label.classList.add(...inactiveClasses);
+            });
+
+            clickedLabel.classList.remove(...inactiveClasses);
+            clickedLabel.classList.add(...activeClasses);
+        }
+
+
+        // Toggle the language menu open/close
+        function toggleLangMenu() {
+            const menu = document.getElementById('langMenu');
+            const chevron = document.getElementById('langChevron');
+
+            // Toggle visibility and slide effect
+            menu.classList.toggle('opacity-0');
+            menu.classList.toggle('invisible');
+            menu.classList.toggle('translate-y-2');
+
+            // Rotate the arrow
+            chevron.classList.toggle('rotate-180');
+        }
+
+        // Update the selected language and close the menu
+        function selectLang(langText, flagSrc) {
+            // 1. Update the visible trigger text and image
+            document.getElementById('activeLangText').innerText = langText;
+            document.getElementById('activeLangFlag').src = flagSrc;
+
+            // 2. Close the menu
+            toggleLangMenu();
+        }
+
+        // Close the dropdown if the user clicks anywhere outside of it
+        document.addEventListener('click', function (event) {
+            const wrapper = document.getElementById('langDropdownWrapper');
+            const menu = document.getElementById('langMenu');
+            const chevron = document.getElementById('langChevron');
+
+            // If the click is outside the wrapper, hide the menu
+            if (wrapper && !wrapper.contains(event.target)) {
+                menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                chevron.classList.remove('rotate-180');
+            }
+        });
     </script>
 
     <style>
@@ -190,12 +237,33 @@
 
             <div class="flex items-center gap-3 lg:gap-6 h-full">
 
-                <div class="hidden lg:flex items-center gap-2 text-sm font-[600] cursor-pointer">
-                    <img src="./Flag.png" alt="US Flag" class="w-7 h-auto rounded-full">
-                    <span class="text-[#5B616E]">ENG</span>
-                    <i class="text-[#5B616E] fas fa-chevron-down text-[10px]"></i>
-                </div>
+                <div class="relative hidden lg:block z-[110]" id="langDropdownWrapper">
 
+                    <div onclick="toggleLangMenu()"
+                        class="flex items-center gap-2 text-sm font-[600] cursor-pointer h-full">
+                        <img id="activeLangFlag" src="./Flag.png" alt="US Flag" class="w-7 h-auto rounded-full">
+                        <span id="activeLangText" class="text-[#5B616E]">ENG</span>
+                        <i id="langChevron"
+                            class="text-[#5B616E] fas fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                    </div>
+
+                    <div id="langMenu"
+                        class="absolute top-[120%] right-0 w-[120px] bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible transition-all duration-200 transform translate-y-2">
+
+                        <div onclick="selectLang('ENG', './Flag.png')"
+                            class="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 cursor-pointer text-sm font-[600] rounded-t-lg transition">
+                            <img src="./Flag.png" alt="US Flag" class="w-7 h-auto rounded-full">
+                            <span class="text-[#5B616E]">ENG</span>
+                        </div>
+
+                        <div onclick="selectLang('URD', './pkflag.jpg')"
+                            class="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 cursor-pointer text-sm font-[600] rounded-b-lg transition border-t border-gray-100">
+                            <img src="./pkflag.jpg" alt="PK Flag" class="w-7 h-auto rounded-full">
+                            <span class="text-[#5B616E]">URD</span>
+                        </div>
+
+                    </div>
+                </div>
                 <button
                     class="bg-[#1E2358] hover:bg-opacity-90 text-white px-4 h-[36px] lg:h-[44px] lg:px-6 rounded-[8px] font-[600] text-[12px] lg:text-sm flex items-center gap-2 transition">
                     Sign In <img src="./arrow-left-02.svg" alt="Arrow" class="w-4 h-4 lg:w-5 lg:h-5">
@@ -453,32 +521,24 @@
                     w-[311px] h-[32px] gap-[8px] 
                     lg:w-[375px] lg:h-[40px] lg:gap-[8px]">
 
-                <label class="bg-brandDark text-white rounded-lg flex items-center justify-center cursor-pointer text-[11px] lg:text-sm font-[500] radio-dark whitespace-nowrap shrink-0 opacity-100
-                        /* Mobile Label Specs */
-                        w-[98.33px] h-[32px]
-                        /* Laptop Label Specs */
-                        lg:w-[114px] lg:h-[40px]">
+                <label onclick="activateTripType(this)"
+                    class="trip-type-label bg-brandDark text-white rounded-lg flex items-center justify-center cursor-pointer text-[11px] lg:text-sm font-[500] radio-dark whitespace-nowrap shrink-0 opacity-100 w-[98.33px] h-[32px] lg:w-[114px] lg:h-[40px]">
                     <input type="radio" name="tripType" checked class="hidden">
                     One Way
                 </label>
 
-                <label class="bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center justify-center cursor-pointer text-[11px] lg:text-sm font-[500] transition radio-light whitespace-nowrap shrink-0 opacity-100
-                        /* Mobile Label Specs */
-                        w-[98.33px] h-[32px]
-                        /* Laptop Label Specs */
-                        lg:w-[114px] lg:h-[40px]">
+                <label onclick="activateTripType(this)"
+                    class="trip-type-label bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center justify-center cursor-pointer text-[11px] lg:text-sm font-[500] transition radio-light whitespace-nowrap shrink-0 opacity-100 w-[98.33px] h-[32px] lg:w-[114px] lg:h-[40px]">
                     <input type="radio" name="tripType" class="hidden">
                     Round Trip
                 </label>
 
-                <label class="bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center justify-center cursor-pointer text-[11px] lg:text-sm font-[500] transition radio-light whitespace-nowrap shrink-0 opacity-100
-                        /* Mobile Label Specs */
-                        w-[98.33px] h-[32px]
-                        /* Laptop Label Specs */
-                        lg:w-[114px] lg:h-[40px]">
+                <label onclick="activateTripType(this)"
+                    class="trip-type-label bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center justify-center cursor-pointer text-[11px] lg:text-sm font-[500] transition radio-light whitespace-nowrap shrink-0 opacity-100 w-[98.33px] h-[32px] lg:w-[114px] lg:h-[40px]">
                     <input type="radio" name="tripType" class="hidden">
                     Multi City
                 </label>
+
             </div>
 
             <div class="flex flex-col lg:flex-row mt-2 lg:mt-6 mb-8 items-stretch relative opacity-100 rotate-0
@@ -490,7 +550,7 @@
                 <div class="flex flex-row flex-1 gap-2 lg:gap-4 relative w-full h-full">
                     <div class="border border-lightBorder hover:border-brandBlue rounded-[14px] lg:rounded-2xl p-1 lg:p-1 flex items-start gap-2 lg:gap-3 cursor-pointer transition bg-white shrink-0
                             w-[149.5px] h-[76px] lg:w-[224px] lg:h-[82px]">
-                        <img src="./Frame 833.png" alt="From" class="w-4 h-8 lg:w-8 shrink-0 mt-0.5">
+                        <img src="./Frame 833.png" alt="From" class="w-7 h-7 lg:w-8 shrink-0 mt-0.5">
                         <div class="flex flex-col overflow-hidden">
                             <span
                                 class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide">From</span>
@@ -507,7 +567,7 @@
 
                     <div class="border border-lightBorder hover:border-brandBlue rounded-[14px] lg:rounded-2xl p-3 lg:p-1 flex items-start gap-2 lg:gap-3 cursor-pointer transition bg-white shrink-0
                             w-[149.5px] h-[76px] lg:w-[224px] lg:h-[82px]">
-                        <img src="./arrow.svg" alt="To" class="w-4 h-4 lg:w-6 h-6 shrink-0 mt-0.5">
+                        <img src="./arrow.svg" alt="To" class="w-5 h-5 lg:w-6 h-6 shrink-0 mt-0.5">
                         <div class="flex flex-col overflow-hidden">
                             <span
                                 class="text-[9px] lg:text-[11px] text-[#253183] font-[400] uppercase tracking-wide">To</span>
