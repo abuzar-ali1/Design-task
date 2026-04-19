@@ -33,65 +33,98 @@
         }
 
 
-      function toggleMenu() {
-    const isDesktop = window.innerWidth >= 1024;
+        function toggleMenu() {
+            const isDesktop = window.innerWidth >= 1024;
 
-    if (isDesktop) {
-        const laptopMenu = document.getElementById('laptopMenu');
-        const laptopContent = document.getElementById('laptopMenuContent');
-        const desktopBackdrop = document.getElementById('desktopBackdrop');
+            if (isDesktop) {
+                const laptopMenu = document.getElementById('laptopMenu');
+                const laptopContent = document.getElementById('laptopMenuContent');
+                const desktopBackdrop = document.getElementById('desktopBackdrop');
 
-        if (laptopMenu && laptopMenu.classList.contains('-translate-y-full')) {
-            laptopMenu.classList.remove('-translate-y-full');
-            
-            if (desktopBackdrop) {
-                desktopBackdrop.classList.remove('pointer-events-none', 'opacity-0');
-                desktopBackdrop.classList.add('opacity-100');
-            }
+                if (laptopMenu && laptopMenu.classList.contains('-translate-y-full')) {
+                    laptopMenu.classList.remove('-translate-y-full');
 
-            if (laptopContent) {
-                setTimeout(() => laptopContent.classList.remove('opacity-0'), 250);
-            }
-            
-            document.body.style.overflow = 'hidden';
-        } else if (laptopMenu) {
-            if (laptopContent) {
-                laptopContent.classList.add('opacity-0');
-            }
-            
-            if (desktopBackdrop) {
-                desktopBackdrop.classList.add('opacity-0', 'pointer-events-none');
-                desktopBackdrop.classList.remove('opacity-100');
-            }
+                    if (desktopBackdrop) {
+                        desktopBackdrop.classList.remove('pointer-events-none', 'opacity-0');
+                        desktopBackdrop.classList.add('opacity-100');
+                    }
 
-            setTimeout(() => laptopMenu.classList.add('-translate-y-full'), 100);
-            document.body.style.overflow = 'auto';
+                    if (laptopContent) {
+                        setTimeout(() => laptopContent.classList.remove('opacity-0'), 250);
+                    }
+
+                    document.body.style.overflow = 'hidden';
+                } else if (laptopMenu) {
+                    if (laptopContent) {
+                        laptopContent.classList.add('opacity-0');
+                    }
+
+                    if (desktopBackdrop) {
+                        desktopBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                        desktopBackdrop.classList.remove('opacity-100');
+                    }
+
+                    setTimeout(() => laptopMenu.classList.add('-translate-y-full'), 100);
+                    document.body.style.overflow = 'auto';
+                }
+            } else {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileBackdrop = document.getElementById('mobileBackdrop');
+
+                if (mobileMenu && mobileMenu.classList.contains('translate-x-full')) {
+                    mobileMenu.classList.remove('translate-x-full');
+
+                    if (mobileBackdrop) {
+                        mobileBackdrop.classList.remove('hidden');
+                        setTimeout(() => mobileBackdrop.classList.remove('opacity-0'), 10);
+                    }
+
+                    document.body.style.overflow = 'hidden';
+                } else if (mobileMenu) {
+                    mobileMenu.classList.add('translate-x-full');
+
+                    if (mobileBackdrop) {
+                        mobileBackdrop.classList.add('opacity-0');
+                        setTimeout(() => mobileBackdrop.classList.add('hidden'), 300);
+                    }
+
+                    document.body.style.overflow = 'auto';
+                }
+            }
         }
-    } else {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileBackdrop = document.getElementById('mobileBackdrop');
 
-        if (mobileMenu && mobileMenu.classList.contains('translate-x-full')) {
-            mobileMenu.classList.remove('translate-x-full');
-            
-            if (mobileBackdrop) {
-                mobileBackdrop.classList.remove('hidden');
-                setTimeout(() => mobileBackdrop.classList.remove('opacity-0'), 10);
+
+        function activateTab(clickedBtn) {
+            // 1. Get all the tabs
+            const allTabs = document.querySelectorAll('.tab-btn');
+
+            // 2. These are your exact Tailwind classes for Active and Inactive states
+            const activeClasses = ['text-brandBlue', 'border-b-[3px]', 'border-brandBlue'];
+            const inactiveClasses = ['text-textGray', 'hover:text-brandDark'];
+
+            // 3. Loop through all tabs to reset them to the inactive style
+            allTabs.forEach(btn => {
+                // Remove active styles, add inactive styles
+                btn.classList.remove(...activeClasses);
+                btn.classList.add(...inactiveClasses);
+
+                // Make the image slightly transparent again
+                const img = btn.querySelector('img');
+                if (img) {
+                    img.classList.add('opacity-60');
+                }
+            });
+
+            // 4. Apply the active style ONLY to the button that was clicked
+            clickedBtn.classList.remove(...inactiveClasses);
+            clickedBtn.classList.add(...activeClasses);
+
+            // Make the clicked button's image fully visible
+            const clickedImg = clickedBtn.querySelector('img');
+            if (clickedImg) {
+                clickedImg.classList.remove('opacity-60');
             }
-            
-            document.body.style.overflow = 'hidden';
-        } else if (mobileMenu) {
-            mobileMenu.classList.add('translate-x-full');
-            
-            if (mobileBackdrop) {
-                mobileBackdrop.classList.add('opacity-0');
-                setTimeout(() => mobileBackdrop.classList.add('hidden'), 300);
-            }
-            
-            document.body.style.overflow = 'auto';
         }
-    }
-}
     </script>
 
     <style>
@@ -181,129 +214,189 @@
     <!-- Side Menu -->
     <!-- For Laptops -->
 
-  <div id="laptopMenu" class="absolute top-0 left-0 w-full bg-white z-[100] transform -translate-y-full transition-transform duration-500 ease-in-out shadow-2xl lg:block hidden pb-16">
-    
-    <div class="w-full h-[80px] flex justify-center items-center">
-        <div class="w-[1140px] flex justify-between items-center h-full px-4 xl:px-0">
-            <div class="flex items-center h-full">
-                <img class="w-[160px] h-auto object-contain" src="./headerlogo.png" alt="Skyvela Logo">
+    <div id="laptopMenu"
+        class="absolute top-0 left-0 w-full bg-white z-[100] transform -translate-y-full transition-transform duration-500 ease-in-out shadow-2xl lg:block hidden pb-16">
+
+        <div class="w-full h-[80px] flex justify-center items-center">
+            <div class="w-[1140px] flex justify-between items-center h-full px-4 xl:px-0">
+                <div class="flex items-center h-full">
+                    <img class="w-[160px] h-auto object-contain" src="./headerlogo.png" alt="Skyvela Logo">
+                </div>
+
+                <button onclick="toggleMenu()"
+                    class="text-gray-500 hover:text-[#1E2358] w-[44px] h-[44px] transition flex items-center justify-end cursor-pointer">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
             </div>
-            
-            <button onclick="toggleMenu()" class="text-gray-500 hover:text-[#1E2358] w-[44px] h-[44px] transition flex items-center justify-end cursor-pointer">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
+        </div>
+
+        <div class="w-full border-t border-gray-200"></div>
+
+        <div class="w-[1140px] mx-auto pt-10 px-4 xl:px-0 grid grid-cols-4 gap-8 opacity-0 transition-opacity duration-500 delay-100"
+            id="laptopMenuContent">
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Travel</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./flight.svg" class="w-[20px] object-contain"> Flights</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./5hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./package.svg" class="w-[20px] object-contain"> Packages</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./activities.svg" class="w-[20px] object-contain"> Activities</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./ven.svg" class="w-[20px] object-contain"> Transfers</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Company</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./about.svg" class="w-[20px] object-contain" alt="About Us"> About Us</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./blog.svg" class="w-[20px] object-contain" alt="Blog"> Blog</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./gallery.svg" class="w-[20px] object-contain" alt="Gallery"> Gallery</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Support</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./help.svg" class="w-[20px] object-contain" alt="Help Center"> Help Center</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./contact.svg" class="w-[20px] object-contain" alt="Contact Us"> Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Account</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./booking.svg" class="w-[20px] object-contain" alt="My Booking"> My Booking</a>
+                    </li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./saved.svg" class="w-[20px] object-contain" alt="Saved"> Saved</a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
-
-    <div class="w-full border-t border-gray-200"></div>
-
-    <div class="w-[1140px] mx-auto pt-10 px-4 xl:px-0 grid grid-cols-4 gap-8 opacity-0 transition-opacity duration-500 delay-100" id="laptopMenuContent">
-        
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Travel</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./flight.svg" class="w-[20px] object-contain"> Flights</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./5hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./package.svg" class="w-[20px] object-contain"> Packages</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./activities.svg" class="w-[20px] object-contain"> Activities</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./ven.svg" class="w-[20px] object-contain"> Transfers</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Company</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./about.svg" class="w-[20px] object-contain" alt="About Us"> About Us</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./blog.svg" class="w-[20px] object-contain" alt="Blog"> Blog</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./gallery.svg" class="w-[20px] object-contain" alt="Gallery"> Gallery</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Support</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./help.svg" class="w-[20px] object-contain" alt="Help Center"> Help Center</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./contact.svg" class="w-[20px] object-contain" alt="Contact Us"> Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-6">Account</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./booking.svg" class="w-[20px] object-contain" alt="My Booking"> My Booking</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./saved.svg" class="w-[20px] object-contain" alt="Saved"> Saved</a></li>
-            </ul>
-        </div>
-
-    </div>
-</div>
     <!-- For Mobiels -->
-<div id="mobileBackdrop" class="fixed inset-0 bg-black/50 z-[90] hidden opacity-0 transition-opacity duration-300 lg:hidden" onclick="toggleMenu()"></div>
+    <div id="mobileBackdrop"
+        class="fixed inset-0 bg-black/50 z-[90] hidden opacity-0 transition-opacity duration-300 lg:hidden"
+        onclick="toggleMenu()"></div>
 
-<div id="mobileMenu" class="fixed top-0 right-0 w-[300px] h-full bg-white z-[100] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl lg:hidden overflow-y-auto">
-    
-    <div class="flex justify-end py-2 px-5">
-        <button onclick="toggleMenu()" class="text-[#1E2358] hover:text-gray-500 transition text-2xl cursor-pointer">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 w-[300px] h-full bg-white z-[100] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl lg:hidden overflow-y-auto">
 
-    <div class="px-6 pb-10">
-        
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Account</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./booking.svg" class="w-[20px] object-contain" alt="My Booking"> My Booking</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./saved.svg" class="w-[20px] object-contain" alt="Saved"> Saved</a></li>
-            </ul>
-        </div>
-
-        <div class="w-full border-t border-gray-200 my-6"></div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Travel</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./flight.svg" class="w-[20px] object-contain"> Flights</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./5hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./package.svg" class="w-[20px] object-contain"> Packages</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./activities.svg" class="w-[20px] object-contain"> Activities</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./ven.svg" class="w-[20px] object-contain"> Transfers</a></li>
-            </ul>
-        </div>
-
-        <div class="w-full border-t border-gray-200 my-6"></div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Company</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./about.svg" class="w-[20px] object-contain" alt="About Us"> About Us</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./blog.svg" class="w-[20px] object-contain" alt="Blog"> Blog</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./gallery.svg" class="w-[20px] object-contain" alt="Gallery"> Gallery</a></li>
-            </ul>
-        </div>
-
-        <div class="w-full border-t border-gray-200 my-6"></div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Support</h4>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./help.svg" class="w-[20px] object-contain" alt="Help Center"> Help Center</a></li>
-                <li><a href="#" class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img src="./contact.svg" class="w-[20px] object-contain" alt="Contact Us"> Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="w-full border-t border-gray-200 my-6"></div>
-
-        <div>
-            <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Region & Currency</h4>
-            <button class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 w-full text-left transition">
-                <img src="Flag.png" class="w-[24px] h-auto object-contain rounded-sm" alt="US Flag"> 
-                English - USD
+        <div class="flex justify-end py-2 px-5">
+            <button onclick="toggleMenu()"
+                class="text-[#1E2358] hover:text-gray-500 transition text-2xl cursor-pointer">
+                <i class="fas fa-times"></i>
             </button>
         </div>
 
+        <div class="px-6 pb-10">
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Account</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./booking.svg" class="w-[20px] object-contain" alt="My Booking"> My Booking</a>
+                    </li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./saved.svg" class="w-[20px] object-contain" alt="Saved"> Saved</a></li>
+                </ul>
+            </div>
+
+            <div class="w-full border-t border-gray-200 my-6"></div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Travel</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./flight.svg" class="w-[20px] object-contain"> Flights</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./5hotel.svg" class="w-[20px] object-contain"> Hotels</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./package.svg" class="w-[20px] object-contain"> Packages</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./activities.svg" class="w-[20px] object-contain"> Activities</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./ven.svg" class="w-[20px] object-contain"> Transfers</a></li>
+                </ul>
+            </div>
+
+            <div class="w-full border-t border-gray-200 my-6"></div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Company</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./about.svg" class="w-[20px] object-contain" alt="About Us"> About Us</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./blog.svg" class="w-[20px] object-contain" alt="Blog"> Blog</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./gallery.svg" class="w-[20px] object-contain" alt="Gallery"> Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="w-full border-t border-gray-200 my-6"></div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Support</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./help.svg" class="w-[20px] object-contain" alt="Help Center"> Help Center</a></li>
+                    <li><a href="#"
+                            class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 transition"><img
+                                src="./contact.svg" class="w-[20px] object-contain" alt="Contact Us"> Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-full border-t border-gray-200 my-6"></div>
+
+            <div>
+                <h4 class="text-[16px] font-bold text-[#1E2358] mb-4">Region & Currency</h4>
+                <button
+                    class="text-gray-600 text-[14px] font-medium hover:text-[#1E2358] flex items-center gap-3 w-full text-left transition">
+                    <img src="Flag.png" class="w-[24px] h-auto object-contain rounded-sm" alt="US Flag">
+                    English - USD
+                </button>
+            </div>
+
+        </div>
     </div>
-</div>
     <!-- Heroo section -->
 
 
@@ -317,42 +410,43 @@
                 /* Laptop Specs (lg: 1024px+) */
                 lg:w-[1140px] lg:h-[299px] lg:p-8 lg:gap-0 lg:block">
 
-            <div class="flex items-center justify-between lg:justify-start overflow-x-auto hide-scrollbar border-b border-lightBorder rotate-0 opacity-100
+            <div class="flex items-center justify-between lg:justify-start overflow-x-auto hide-scrollbar border-lightBorder rotate-0 opacity-100
                     /* Mobile Specs */
                     w-[311px] h-[50px] gap-[21px] 
                     /* Laptop Specs (lg) */
                     lg:w-[608px] lg:h-[37px] lg:gap-[20px]">
 
-                <button
-                    class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-brandBlue font-[500] border-b-[3px] border-brandBlue h-full px-1 shrink-0">
+                <button onclick="activateTab(this)"
+                    class="tab-btn flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-brandBlue font-[500] border-b-[3px] border-brandBlue h-full px-1 shrink-0 transition">
                     <img src="./flight.svg" alt="Flights" class="w-4 h-4 lg:w-5 lg:h-5">
                     <span class="text-[10px] lg:text-[14px] whitespace-nowrap">Flights</span>
                 </button>
 
-                <button
-                    class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
+                <button onclick="activateTab(this)"
+                    class="tab-btn flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
                     <img src="./hotel.svg" alt="Hotels" class="w-4 h-4 lg:w-5 lg:h-5 opacity-60">
                     <span class="text-[10px] lg:text-[14px] whitespace-nowrap">Hotels</span>
                 </button>
 
-                <button
-                    class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
+                <button onclick="activateTab(this)"
+                    class="tab-btn flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
                     <img src="./pakage.svg" alt="Packages" class="w-4 h-4 lg:w-5 lg:h-5 opacity-60">
                     <span class="text-[10px] lg:text-[14px] whitespace-nowrap">Packages</span>
                 </button>
 
-                <button
-                    class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
+                <button onclick="activateTab(this)"
+                    class="tab-btn flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
                     <img src="./act.svg" alt="Activities" class="w-4 h-4 lg:w-5 lg:h-5 opacity-60">
                     <span class="text-[10px] lg:text-[14px] whitespace-nowrap">Activities</span>
                 </button>
 
-                <button
-                    class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
+                <button onclick="activateTab(this)"
+                    class="tab-btn flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 text-textGray font-[500] hover:text-brandDark transition h-full px-1 shrink-0">
                     <img src="./car.svg" alt="Transfers" class="w-4 h-4 lg:w-5 lg:h-5 opacity-60">
                     <span class="text-[10px] lg:text-[14px] whitespace-nowrap">Transfers</span>
                 </button>
             </div>
+            <hr class="border-lightBorder">
 
             <div class="flex items-center overflow-x-auto hide-scrollbar mt-2 lg:mt-6 rotate-0 opacity-100
                     /* Container Specs */
